@@ -2,7 +2,7 @@
 
 - [GitHub](https://github.com/sebastien-lempens/webgl-boxing-gym)
 - [Live](https://boxing-gym.vercel.app)
-
+ 
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).
 Run this followed commands:
