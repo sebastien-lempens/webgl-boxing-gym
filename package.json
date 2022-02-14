@@ -10,5 +10,9 @@
     "vite": "^2.6.4",
     "vite-plugin-glsl": "^0.0.8",
     "vite-plugin-import-maps": "^0.1.2"
+  },
+  "dependencies": {
+    "three": "^0.137.5",
+    "tweakpane": "^3.0.7"
   }
 }
