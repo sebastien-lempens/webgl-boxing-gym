@@ -18,7 +18,7 @@ export default class Models {
 		const geometry = new THREE.BoxGeometry(1, 1, 1, 1, 1, 1)
 		const texture = await new Promise((resolve) => {
 			new THREE.TextureLoader(this.app.loadingManager).load(
-				'/assets/texture/uvchecker.png',
+				'/assets/texture/uvchecker.png', 
 				(texture) => {
 					resolve(texture)
 				}
