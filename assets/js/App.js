@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { RectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHelper.js'
 
 export default class App {
   #resizeCallback = () => this.#onResize()
@@ -79,15 +80,33 @@ export default class App {
     )
     this.renderer.setPixelRatio(Math.min(1.5, window.devicePixelRatio))
     this.renderer.setClearColor(0x121212)
-    this.renderer.physicallyCorrectLights = false
+    this.renderer.physicallyCorrectLights = true
   }
   #createLight() {
-    const light = new THREE.AmbientLight(0xffffff) // soft white light
+    const light = new THREE.AmbientLight(0xffffff)
+    light.intensity = 1.5
     this.scene.add(light)
     const directionalLight = new THREE.DirectionalLight(0xffffff, 5)
     directionalLight.position.x = -5
     directionalLight.position.z = 5
     this.scene.add(directionalLight)
+
+    {
+      const width = 2.5
+      const height = 1
+      const intensity = 1
+      const rectLight = new THREE.RectAreaLight(
+        0xffffff,
+        intensity,
+        width,
+        height
+      )
+      rectLight.position.set(0.85,2,-1.5)
+      //rectLight.lookAt(0, 0, 0)
+      this.scene.add(rectLight)
+	  const rectLightHelper = new RectAreaLightHelper( rectLight );
+	  rectLight.add( rectLightHelper );
+    }
   }
   #createLoaders() {
     this.loadingManager = new THREE.LoadingManager()

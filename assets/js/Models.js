@@ -24,14 +24,48 @@ export default class Models {
         const children = scene.scene.children[0].children
         await Promise.all(
           children.map(async (child) => {
+            const { name } = child
             await new Promise((resolve) => {
-              const { name } = child
               new THREE.TextureLoader(this.app.loadingManager).load(
-                `/assets/texture/${name}_2dview.webp`,
+                `/assets/texture/Diffuse/${name}.webp`,
                 (texture) => {
                   if (texture) {
                     texture.flipY = false
+                    if (name === 'WindowLight') {
+                      child.material.side = THREE.DoubleSide
+                      child.material.emissive = new THREE.Color(0xffffff)
+                    }
+                    child.material.metalness = 0
+                    child.material.roughness = 1
                     child.material.map = texture
+                    texture.needsUpdate = true
+                  }
+                  resolve()
+                }
+              )
+            })
+            await new Promise((resolve) => {
+              new THREE.TextureLoader(this.app.loadingManager).load(
+                `/assets/texture/Roughness/${name}.webp`,
+                (texture) => {
+                  if (texture) {
+                    texture.flipY = false
+                    child.material.roughnessMap = texture
+                    texture.needsUpdate = true
+                  }
+                  resolve()
+                }
+              )
+            })
+            await new Promise((resolve) => {
+              new THREE.TextureLoader(this.app.loadingManager).load(
+                `/assets/texture/Normal/${name}.webp`,
+                (texture) => {
+                  if (texture) {
+                    texture.flipY = false
+                    child.material.normalScale = new THREE.Vector2(0.5, 0.5)
+                  //  child.material.normalMapType = THREE.ObjectSpaceNormalMap
+                    child.material.normalMap = texture
                     texture.needsUpdate = true
                   }
                   resolve()
