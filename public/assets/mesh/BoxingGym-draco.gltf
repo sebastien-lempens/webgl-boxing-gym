@@ -1,0 +1,1633 @@
+{
+  "asset": {
+    "generator": "glTF-Transform v2.0.4",
+    "version": "2.0"
+  },
+  "accessors": [
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 288
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 144,
+      "max": [
+        2.4001903533935547,
+        2.3500797748565674,
+        -1.913183331489563
+      ],
+      "min": [
+        -0.47634798288345337,
+        1.602685809135437,
+        -2.1471831798553467
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 144
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 144
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 600
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 121,
+      "max": [
+        1.6402090787887573,
+        0.5318590998649597,
+        -0.11368190497159958
+      ],
+      "min": [
+        -2.2351696491241455,
+        -0.4913019835948944,
+        -0.11368190497159958
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 121
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 121
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 90000
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 16569,
+      "max": [
+        0.03752734884619713,
+        0.08886268734931946,
+        0.2266026735305786
+      ],
+      "min": [
+        -0.04364538937807083,
+        -0.06503325700759888,
+        0.0023110900074243546
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 16569
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 16569
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 240
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 144,
+      "max": [
+        2.702519655227661,
+        2.560170888900757,
+        1.8662179708480835
+      ],
+      "min": [
+        -3.297480344772339,
+        2.4008307456970215,
+        -1.860911250114441
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 144
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 144
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 1272
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 704,
+      "max": [
+        0.9728751182556152,
+        0.22861886024475098,
+        2.052199125289917
+      ],
+      "min": [
+        -1.8898202180862427,
+        -0.1834438592195511,
+        -1.2991873025894165
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 704
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 704
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 61776
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 13005,
+      "max": [
+        0.25934305787086487,
+        0.3956950306892395,
+        0.24592186510562897
+      ],
+      "min": [
+        -0.31606030464172363,
+        -0.29902809858322144,
+        -0.15407554805278778
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 13005
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 13005
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 22602
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 5755,
+      "max": [
+        0.6724138855934143,
+        0.45185163617134094,
+        0.08748655021190643
+      ],
+      "min": [
+        -0.6724138855934143,
+        -0.45185163617134094,
+        -0.08748655021190643
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 5755
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 5755
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 144
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 54,
+      "max": [
+        1.4784259796142578,
+        0.0261198952794075,
+        1.1100108623504639
+      ],
+      "min": [
+        -2.0733866691589355,
+        0.000081397891335655,
+        -1.3394726514816284
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 54
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 54
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5125,
+      "count": 402084
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 68132,
+      "max": [
+        0.3793160319328308,
+        0.10394811630249023,
+        0.28609395027160645
+      ],
+      "min": [
+        -1.0328787565231323,
+        0.0011523106368258595,
+        -0.21690689027309418
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 68132
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 68132
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 13848
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 3333,
+      "max": [
+        0.07123228162527084,
+        0.29570838809013367,
+        0.44488203525543213
+      ],
+      "min": [
+        -0.07123228162527084,
+        -0.29570838809013367,
+        -0.44488203525543213
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 3333
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 3333
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 76842
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 22764,
+      "max": [
+        0.26808682084083557,
+        0.9319945573806763,
+        0.540256917476654
+      ],
+      "min": [
+        -0.30495360493659973,
+        -0.9680054783821106,
+        -0.4065028429031372
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 22764
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 22764
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5125,
+      "count": 339306
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 80225,
+      "max": [
+        0.13396954536437988,
+        0.4786003530025482,
+        0.09788656234741211
+      ],
+      "min": [
+        -0.16603045165538788,
+        0.07860036194324493,
+        -0.07849647104740143
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 80225
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 80225
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 11520
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 3187,
+      "max": [
+        2.702458381652832,
+        2.174791097640991,
+        -0.01664351299405098
+      ],
+      "min": [
+        -3.297541618347168,
+        1.988806128501892,
+        -0.41194915771484375
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 3187
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 3187
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 91725
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 18660,
+      "max": [
+        0.2713114023208618,
+        0.22838856279850006,
+        0.1595885008573532
+      ],
+      "min": [
+        -0.2797035872936249,
+        -0.00010065057722385973,
+        -0.1300876885652542
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 18660
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 18660
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 133416
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 31212,
+      "max": [
+        0.2033281773328781,
+        1.8595067262649536,
+        0.22167842090129852
+      ],
+      "min": [
+        -0.2366718351840973,
+        0.09950672090053558,
+        -0.21832159161567688
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 31212
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 31212
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 288
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 136,
+      "max": [
+        2.702519655227661,
+        2.516077756881714,
+        1.8852691650390625
+      ],
+      "min": [
+        -3.297480344772339,
+        0.013100646436214447,
+        -2.1147308349609375
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 136
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 136
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 504
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 296,
+      "max": [
+        2.702878952026367,
+        2.487645149230957,
+        1.8944485187530518
+      ],
+      "min": [
+        -3.297595262527466,
+        0.013697519898414612,
+        -1.8582590818405151
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 296
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 296
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 6
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 4,
+      "max": [
+        2.702519655227661,
+        0.013100646436214447,
+        1.8852691650390625
+      ],
+      "min": [
+        -3.297480344772339,
+        0.013100646436214447,
+        -2.1147308349609375
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 4
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 4
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 725
+    },
+    {
+      "buffer": 1,
+      "byteOffset": 0,
+      "byteLength": 375
+    },
+    {
+      "buffer": 2,
+      "byteOffset": 0,
+      "byteLength": 100678
+    },
+    {
+      "buffer": 3,
+      "byteOffset": 0,
+      "byteLength": 732
+    },
+    {
+      "buffer": 4,
+      "byteOffset": 0,
+      "byteLength": 2693
+    },
+    {
+      "buffer": 5,
+      "byteOffset": 0,
+      "byteLength": 61155
+    },
+    {
+      "buffer": 6,
+      "byteOffset": 0,
+      "byteLength": 31045
+    },
+    {
+      "buffer": 7,
+      "byteOffset": 0,
+      "byteLength": 333
+    },
+    {
+      "buffer": 8,
+      "byteOffset": 0,
+      "byteLength": 419921
+    },
+    {
+      "buffer": 9,
+      "byteOffset": 0,
+      "byteLength": 19261
+    },
+    {
+      "buffer": 10,
+      "byteOffset": 0,
+      "byteLength": 78003
+    },
+    {
+      "buffer": 11,
+      "byteOffset": 0,
+      "byteLength": 370708
+    },
+    {
+      "buffer": 12,
+      "byteOffset": 0,
+      "byteLength": 10867
+    },
+    {
+      "buffer": 13,
+      "byteOffset": 0,
+      "byteLength": 97555
+    },
+    {
+      "buffer": 14,
+      "byteOffset": 0,
+      "byteLength": 146609
+    },
+    {
+      "buffer": 15,
+      "byteOffset": 0,
+      "byteLength": 654
+    },
+    {
+      "buffer": 16,
+      "byteOffset": 0,
+      "byteLength": 1186
+    },
+    {
+      "buffer": 17,
+      "byteOffset": 0,
+      "byteLength": 184
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "BoxingGym-draco_1.bin",
+      "byteLength": 725
+    },
+    {
+      "uri": "BoxingGym-draco_2.bin",
+      "byteLength": 375
+    },
+    {
+      "uri": "BoxingGym-draco_3.bin",
+      "byteLength": 100678
+    },
+    {
+      "uri": "BoxingGym-draco_4.bin",
+      "byteLength": 732
+    },
+    {
+      "uri": "BoxingGym-draco_5.bin",
+      "byteLength": 2693
+    },
+    {
+      "uri": "BoxingGym-draco_6.bin",
+      "byteLength": 61155
+    },
+    {
+      "uri": "BoxingGym-draco_7.bin",
+      "byteLength": 31045
+    },
+    {
+      "uri": "BoxingGym-draco_8.bin",
+      "byteLength": 333
+    },
+    {
+      "uri": "BoxingGym-draco_9.bin",
+      "byteLength": 419921
+    },
+    {
+      "uri": "BoxingGym-draco_10.bin",
+      "byteLength": 19261
+    },
+    {
+      "uri": "BoxingGym-draco_11.bin",
+      "byteLength": 78003
+    },
+    {
+      "uri": "BoxingGym-draco_12.bin",
+      "byteLength": 370708
+    },
+    {
+      "uri": "BoxingGym-draco_13.bin",
+      "byteLength": 10867
+    },
+    {
+      "uri": "BoxingGym-draco_14.bin",
+      "byteLength": 97555
+    },
+    {
+      "uri": "BoxingGym-draco_15.bin",
+      "byteLength": 146609
+    },
+    {
+      "uri": "BoxingGym-draco_16.bin",
+      "byteLength": 654
+    },
+    {
+      "uri": "BoxingGym-draco_17.bin",
+      "byteLength": 1186
+    },
+    {
+      "uri": "BoxingGym-draco_18.bin",
+      "byteLength": 184
+    }
+  ],
+  "materials": [
+    {
+      "name": "Window",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "name": "WindowLight",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "name": "FoodBag",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "name": "Ceiling",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "name": "Bench",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "name": "WaterBottle",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "name": "Radiator",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "name": "Carpet",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "name": "BathTowel",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "name": "Towel",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "name": "Lockers",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "name": "BoxingGlove",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "name": "Tube",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "name": "SportBag",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "name": "PunshingBall",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "name": "Walls",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "name": "Plaintes",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "pbrMetallicRoughness": {}
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Window",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 1,
+            "NORMAL": 2,
+            "TEXCOORD_0": 3
+          },
+          "mode": 4,
+          "material": 0,
+          "indices": 0,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 0,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "WindowLight",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 5,
+            "NORMAL": 6,
+            "TEXCOORD_0": 7
+          },
+          "mode": 4,
+          "material": 1,
+          "indices": 4,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 1,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "FoodBag",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 9,
+            "NORMAL": 10,
+            "TEXCOORD_0": 11
+          },
+          "mode": 4,
+          "material": 2,
+          "indices": 8,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 2,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ceiling",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 13,
+            "NORMAL": 14,
+            "TEXCOORD_0": 15
+          },
+          "mode": 4,
+          "material": 3,
+          "indices": 12,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 3,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Bench",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 17,
+            "NORMAL": 18,
+            "TEXCOORD_0": 19
+          },
+          "mode": 4,
+          "material": 4,
+          "indices": 16,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 4,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "WaterBottle",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 21,
+            "NORMAL": 22,
+            "TEXCOORD_0": 23
+          },
+          "mode": 4,
+          "material": 5,
+          "indices": 20,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 5,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Radiator",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 25,
+            "NORMAL": 26,
+            "TEXCOORD_0": 27
+          },
+          "mode": 4,
+          "material": 6,
+          "indices": 24,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 6,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Carpet",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 29,
+            "NORMAL": 30,
+            "TEXCOORD_0": 31
+          },
+          "mode": 4,
+          "material": 7,
+          "indices": 28,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 7,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "BathTowel",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 33,
+            "NORMAL": 34,
+            "TEXCOORD_0": 35
+          },
+          "mode": 4,
+          "material": 8,
+          "indices": 32,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 8,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Towel",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 37,
+            "NORMAL": 38,
+            "TEXCOORD_0": 39
+          },
+          "mode": 4,
+          "material": 9,
+          "indices": 36,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 9,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Lockers",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 41,
+            "NORMAL": 42,
+            "TEXCOORD_0": 43
+          },
+          "mode": 4,
+          "material": 10,
+          "indices": 40,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 10,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "BoxingGlove",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 45,
+            "NORMAL": 46,
+            "TEXCOORD_0": 47
+          },
+          "mode": 4,
+          "material": 11,
+          "indices": 44,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 11,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tube",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 49,
+            "NORMAL": 50,
+            "TEXCOORD_0": 51
+          },
+          "mode": 4,
+          "material": 12,
+          "indices": 48,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 12,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SportBag",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 53,
+            "NORMAL": 54,
+            "TEXCOORD_0": 55
+          },
+          "mode": 4,
+          "material": 13,
+          "indices": 52,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 13,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "PunshingBall",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 57,
+            "NORMAL": 58,
+            "TEXCOORD_0": 59
+          },
+          "mode": 4,
+          "material": 14,
+          "indices": 56,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 14,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Walls",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 61,
+            "NORMAL": 62,
+            "TEXCOORD_0": 63
+          },
+          "mode": 4,
+          "material": 15,
+          "indices": 60,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 15,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Plaintes",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 65,
+            "NORMAL": 66,
+            "TEXCOORD_0": 67
+          },
+          "mode": 4,
+          "material": 16,
+          "indices": 64,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 16,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Floor",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 69,
+            "NORMAL": 70,
+            "TEXCOORD_0": 71
+          },
+          "mode": 4,
+          "material": 17,
+          "indices": 68,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 17,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "name": "BoxingGym",
+      "children": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ]
+    },
+    {
+      "name": "Window",
+      "mesh": 0
+    },
+    {
+      "name": "WindowLight",
+      "translation": [
+        1.2506526708602905,
+        2.231433391571045,
+        -2.2389299869537354
+      ],
+      "rotation": [
+        0.03140975907444954,
+        0,
+        0,
+        -0.9995065927505493
+      ],
+      "mesh": 1
+    },
+    {
+      "name": "FoodBag",
+      "translation": [
+        0.04598309472203255,
+        0.42202749848365784,
+        -1.3837206363677979
+      ],
+      "rotation": [
+        0.7071067690849304,
+        0,
+        0,
+        -0.7071067690849304
+      ],
+      "mesh": 2
+    },
+    {
+      "name": "Ceiling",
+      "translation": [
+        0,
+        -0.019676448777318,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        -1
+      ],
+      "mesh": 3
+    },
+    {
+      "name": "Bench",
+      "translation": [
+        1.3738747835159302,
+        0.19907929003238678,
+        -0.36609476804733276
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        -1
+      ],
+      "mesh": 4
+    },
+    {
+      "name": "WaterBottle",
+      "translation": [
+        -0.3706758916378021,
+        0.311752587556839,
+        -1.3024548292160034
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        -1
+      ],
+      "mesh": 5
+    },
+    {
+      "name": "Radiator",
+      "translation": [
+        2.5533878803253174,
+        0.46508824825286865,
+        -0.9515857696533203
+      ],
+      "rotation": [
+        0,
+        -0.7071067690849304,
+        0,
+        -0.7071067690849304
+      ],
+      "mesh": 6
+    },
+    {
+      "name": "Carpet",
+      "translation": [
+        0,
+        -0.008959253318607807,
+        0.619194507598877
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        -1
+      ],
+      "mesh": 7
+    },
+    {
+      "name": "BathTowel",
+      "translation": [
+        -1.3563261032104492,
+        0.01519701723009348,
+        -1.038655161857605
+      ],
+      "rotation": [
+        -4.988006946757719e-24,
+        -1,
+        8.146033536604591e-8,
+        -6.123234262925839e-17
+      ],
+      "mesh": 8
+    },
+    {
+      "name": "Towel",
+      "translation": [
+        0.10050485283136368,
+        1.133931040763855,
+        -1.8891615867614746
+      ],
+      "rotation": [
+        0,
+        -0.7071067690849304,
+        0,
+        -0.7071067690849304
+      ],
+      "mesh": 9
+    },
+    {
+      "name": "Lockers",
+      "translation": [
+        -1.4296749830245972,
+        0.9814868569374084,
+        -1.4585678577423096
+      ],
+      "rotation": [
+        0,
+        -0.7071067690849304,
+        0,
+        0.7071067690849304
+      ],
+      "mesh": 10
+    },
+    {
+      "name": "BoxingGlove",
+      "translation": [
+        -1.9413174390792847,
+        1.4295214414596558,
+        -1.2798789739608765
+      ],
+      "rotation": [
+        0,
+        -0.44832631945610046,
+        0,
+        0.893869936466217
+      ],
+      "mesh": 11
+    },
+    {
+      "name": "Tube",
+      "translation": [
+        0,
+        0.09868991374969482,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        -1
+      ],
+      "mesh": 12
+    },
+    {
+      "name": "SportBag",
+      "translation": [
+        2.018583297729492,
+        0.4234909117221832,
+        0.0006365998415276408
+      ],
+      "rotation": [
+        -5.760115939779098e-8,
+        -0.7071067690849304,
+        5.760115939779098e-8,
+        -0.7071067690849304
+      ],
+      "mesh": 13
+    },
+    {
+      "name": "PunshingBall",
+      "translation": [
+        -0.29597169160842896,
+        0.28735074400901794,
+        -0.11346852779388428
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        -1
+      ],
+      "mesh": 14
+    },
+    {
+      "name": "Walls",
+      "translation": [
+        0,
+        -0.06371057033538818,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        -1
+      ],
+      "mesh": 15
+    },
+    {
+      "name": "Plaintes",
+      "mesh": 16
+    },
+    {
+      "name": "Floor",
+      "mesh": 17
+    }
+  ],
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "extensionsUsed": [
+    "KHR_draco_mesh_compression"
+  ],
+  "extensionsRequired": [
+    "KHR_draco_mesh_compression"
+  ]
+}
