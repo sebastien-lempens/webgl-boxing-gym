@@ -1,6 +1,5 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import { RectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHelper.js'
 
 export default class App {
 	#resizeCallback = () => this.#onResize()
@@ -86,11 +85,30 @@ export default class App {
 		const light = new THREE.AmbientLight(0xffffff)
 		light.intensity = 1.5
 		this.scene.add(light)
-		const directionalLight = new THREE.DirectionalLight(0xffffff, 5)
-		directionalLight.position.x = -5
-		directionalLight.position.z = 5
-		this.scene.add(directionalLight)
 
+		const lightWindow = new THREE.PointLight(
+			new THREE.Color('rgb(120,140,180)'),
+			5,
+			4,
+			-1.5
+		)
+		lightWindow.name = 'lightWindow'
+		lightWindow.position.set(1.2, 2, -1.2)
+		this.scene.add(lightWindow)
+
+		const lightSide = new THREE.PointLight(
+			new THREE.Color('hsl(228,35%,54%)'),
+			0.35,
+			4.15,
+			-2.8
+		)
+		lightSide.name = 'lightSide'
+		lightSide.position.set(-2.85, 1.25, 1.85)
+		this.scene.add(lightSide)
+
+		// const sphereSize = 0.3
+		// const pointLightHelper = new THREE.PointLightHelper(lightSide, sphereSize)
+		// this.scene.add(pointLightHelper)
 	}
 	#createLoaders() {
 		this.loadingManager = new THREE.LoadingManager()
@@ -98,7 +116,7 @@ export default class App {
 		this.loadingManager.onProgress = (url, loaded, total) => {
 			// In case the progress count is not correct, see this:
 			// https://discourse.threejs.org/t/gltf-file-loaded-twice-when-loading-is-initiated-in-loadingmanager-inside-onprogress-callback/27799/2
-		//	console.log(`Loaded ${loaded} resources out of ${total} -> ${url}`)
+			//	console.log(`Loaded ${loaded} resources out of ${total} -> ${url}`)
 		}
 
 		this.loadingManager.onLoad = () => {

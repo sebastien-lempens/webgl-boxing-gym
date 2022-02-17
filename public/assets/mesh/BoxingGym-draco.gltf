@@ -44,14 +44,14 @@
       "componentType": 5126,
       "count": 121,
       "max": [
-        1.6402090787887573,
-        0.5318590998649597,
-        -0.11368190497159958
+        1.1558942794799805,
+        0.38985273241996765,
+        -0.08332883566617966
       ],
       "min": [
-        -2.2351696491241455,
-        -0.4913019835948944,
-        -0.11368190497159958
+        -1.5751771926879883,
+        -0.3601243495941162,
+        -0.08332883566617966
       ]
     },
     {
@@ -554,7 +554,7 @@
     {
       "buffer": 1,
       "byteOffset": 0,
-      "byteLength": 375
+      "byteLength": 365
     },
     {
       "buffer": 2,
@@ -644,7 +644,7 @@
     },
     {
       "uri": "BoxingGym-draco_2.bin",
-      "byteLength": 375
+      "byteLength": 365
     },
     {
       "uri": "BoxingGym-draco_3.bin",
@@ -714,6 +714,7 @@
   "materials": [
     {
       "name": "Window",
+      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -725,6 +726,7 @@
     },
     {
       "name": "WindowLight",
+      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -736,6 +738,7 @@
     },
     {
       "name": "FoodBag",
+      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -747,6 +750,7 @@
     },
     {
       "name": "Ceiling",
+      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -758,6 +762,7 @@
     },
     {
       "name": "Bench",
+      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -769,6 +774,7 @@
     },
     {
       "name": "WaterBottle",
+      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -780,6 +786,7 @@
     },
     {
       "name": "Radiator",
+      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -791,6 +798,7 @@
     },
     {
       "name": "Carpet",
+      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -802,6 +810,7 @@
     },
     {
       "name": "BathTowel",
+      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -813,6 +822,7 @@
     },
     {
       "name": "Towel",
+      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -824,6 +834,7 @@
     },
     {
       "name": "Lockers",
+      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -835,6 +846,7 @@
     },
     {
       "name": "BoxingGlove",
+      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -846,6 +858,7 @@
     },
     {
       "name": "Tube",
+      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -857,6 +870,7 @@
     },
     {
       "name": "SportBag",
+      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -868,6 +882,7 @@
     },
     {
       "name": "PunshingBall",
+      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -879,6 +894,7 @@
     },
     {
       "name": "Walls",
+      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -890,6 +906,7 @@
     },
     {
       "name": "Plaintes",
+      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -900,7 +917,16 @@
       }
     },
     {
-      "pbrMetallicRoughness": {}
+      "name": "Floor",
+      "doubleSided": true,
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1
+        ]
+      }
     }
   ],
   "meshes": [
@@ -1386,15 +1412,15 @@
     {
       "name": "WindowLight",
       "translation": [
-        1.2506526708602905,
-        2.231433391571045,
-        -2.2389299869537354
+        1.1585187911987305,
+        2.0193674564361572,
+        -1.918775200843811
       ],
       "rotation": [
-        0.03140975907444954,
         0,
         0,
-        -0.9995065927505493
+        0,
+        -1
       ],
       "mesh": 1
     },

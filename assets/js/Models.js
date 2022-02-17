@@ -25,18 +25,19 @@ export default class Models {
 				await Promise.all(
 					children.map(async (child) => {
 						const { name } = child
+						child.material.metalness = 0
+						child.material.roughness = 1
+						child.material.normalScale = new THREE.Vector2(1, 1)
 						await new Promise((resolve) => {
 							new THREE.TextureLoader(this.app.loadingManager).load(
 								`/assets/texture/Diffuse/${name}.webp`,
 								(texture) => {
 									if (texture) {
 										texture.flipY = false
+										child.material.side = THREE.DoubleSide
 										if (name === 'WindowLight') {
-											child.material.side = THREE.DoubleSide
 											child.material.emissive = new THREE.Color(0xffffff)
 										}
-										child.material.metalness = 0
-										child.material.roughness = 1
 										child.material.map = texture
 									}
 									resolve()
@@ -51,6 +52,34 @@ export default class Models {
 										texture.flipY = false
 										child.material.roughnessMap = texture
 									}
+									if (name === 'Ceiling') {
+										child.material.roughness = 2
+									}
+									if (name === 'SportBag') {
+										child.material.roughness = 0.8
+									}
+									if (name === 'PunshingBall') {
+										child.material.roughness = 1
+									}
+									if (name === 'Lockers') {
+										child.material.roughness = 0.85
+									}
+									if (name === 'BoxingGlove') {
+										child.material.roughness = 0.44
+									}
+									if (name === 'WaterBottle') {
+										child.material.roughness = 0.4
+									}
+									if (name === 'Towel') {
+										child.material.roughness = 0.84
+									}
+									if (name === 'Floor') {
+										child.material.roughness = 0.8
+									}
+									if (name === 'Tube') {
+										child.material.roughness = 0.85
+									}
+
 									resolve()
 								}
 							)
@@ -61,8 +90,38 @@ export default class Models {
 								(texture) => {
 									if (texture) {
 										texture.flipY = false
-										child.material.normalScale = new THREE.Vector2(0.5, 0.5)
+										child.material.normalScale = new THREE.Vector2(1, 1)
 										child.material.normalMap = texture
+									}
+									if (name === 'Carpet') {
+										child.material.normalScale = new THREE.Vector2(1.5, 1)
+									}
+									if (name === 'BathTowel') {
+										child.material.normalScale = new THREE.Vector2(8, 2)
+									}
+									if (name === 'PunshingBall') {
+										child.material.normalScale = new THREE.Vector2(-1.4, -1)
+									}
+									if (name === 'Walls') {
+										child.material.normalScale = new THREE.Vector2(0.8, -1.5)
+									}
+									if (name === 'Radiator') {
+										child.material.normalScale = new THREE.Vector2(0, 1)
+									}
+									if (name === 'Bench') {
+										child.material.normalScale = new THREE.Vector2(1, 5.5)
+									}
+									if (name === 'Towel') {
+										child.material.normalScale = new THREE.Vector2(4, 4)
+									}
+									if (name === 'Floor') {
+										child.material.normalScale = new THREE.Vector2(1.5, 3)
+									}
+									if (name === 'Tube') {
+										child.material.normalScale = new THREE.Vector2(2, -0.3)
+									}
+									if (name === 'Lockers') {
+										child.material.normalScale = new THREE.Vector2(-0.55, 0.28)
 									}
 									resolve()
 								}
@@ -79,35 +138,18 @@ export default class Models {
 		group.children.forEach((child) => {
 			if (child.getObjectByName('Carpet')) {
 				const material = child.getObjectByName('Carpet').material
-				const t = { value: 100 }
 				material.onBeforeCompile = (shader) => {
-					console.log(shader)
-					shader.uniforms.metalness = t
-					material.shader = shader
-					shader.vertexShader = `
-          varying vec3 vPosition; 
-          ${shader.vertexShader}`
-					shader.vertexShader = shader.vertexShader.replace(
-						/#include <begin_vertex>/,
-						(match) =>
-							`
-            ${match}
-            vPosition = position;
-            `
-					)
-					shader.fragmentShader = `
-          varying vec3 vPosition; 
-          ${shader.fragmentShader}`
 					shader.fragmentShader = shader.fragmentShader.replace(
-						/#include <dithering_fragment>/,
-						(match) =>
-							`
-            ${match}
-            vec3 lightDirection = normalize(vPosition - vec3(0.25,0.25,0.0));
-            float light = max(dot(-lightDirection * cameraPosition, vNormal),0.0);
-            vec3 updateFragColor = outgoingLight.rgb  + light * 0.3;
-            gl_FragColor = vec4(vec3(updateFragColor), 1.0);
-            `
+						/#include <roughnessmap_fragment>/,
+						(match) => {
+							return `
+						float roughnessFactor = roughness;
+						#ifdef USE_ROUGHNESSMAP
+							vec4 texelRoughness = texture2D( roughnessMap, vUv );
+							roughnessFactor *= texelRoughness.g * texelRoughness.g;
+						#endif
+						`
+						}
 					)
 				}
 			}
