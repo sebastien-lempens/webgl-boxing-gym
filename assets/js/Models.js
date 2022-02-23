@@ -166,7 +166,7 @@ export default class Models {
 
 		const particleMaterial = new ShaderMaterial({
 			blending: THREE.AdditiveBlending,
-			depthTest: false,
+			depthTest: true,
 			transparent: true,
 			uniforms: {
 				uTime: { value: 0 },
@@ -178,8 +178,8 @@ export default class Models {
       void main() {
         vec3 updatedPosition = position;
         updatedPosition.x  = 1.0 + cos( updatedPosition.x * 25.0 + uTime*0.005)*1.5;
-        updatedPosition.y += sin(updatedPosition.y * 70.0 * uTime*0.01)*0.01;
-        updatedPosition.z += sin(updatedPosition.z * 50.0 * uTime*0.05)*0.01;
+        updatedPosition.y += sin(updatedPosition.y * 25.0 + uTime*0.01)*2.01;
+        updatedPosition.z += sin(updatedPosition.z * 50.0 + uTime*0.05)*0.01;
         gl_Position = projectionMatrix * viewMatrix * (modelMatrix * vec4(updatedPosition, 1.0));
         gl_PointSize = size;
         vec4 glPosition = viewMatrix * modelMatrix * vec4(updatedPosition, 1.0);

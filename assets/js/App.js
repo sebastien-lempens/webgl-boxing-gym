@@ -87,10 +87,10 @@ export default class App {
 				dof: {
 					scale: 2.5,
 					focusDistance: 0.05,
-					focalLength: 0.05,
+					focalLength: 0.07,
 				},
 			},
-			particles: 1500,
+			particles: 2000,
 		}
 	}
 	#createScene() {
@@ -123,12 +123,10 @@ export default class App {
 			this.container.clientHeight
 		)
 		this.renderer.setPixelRatio(Math.min(1.5, window.devicePixelRatio))
-		this.renderer.setClearColor(0x000000)
+		this.renderer.setClearColor(new THREE.Color('#282b2c'))
 		this.renderer.physicallyCorrectLights = true
 		this.renderer.toneMapping = 5
 		this.renderer.toneMappingExposure = 0.135
-		// this.renderer.outputEncoding = THREE.sRGBEncoding
-    console.log(this.renderer);
 	}
 	#createComposer() {
 		this.composer = new EffectComposer(this.renderer, {
@@ -159,10 +157,6 @@ export default class App {
 		lightSide.name = 'lightSide'
 		lightSide.position.set(-2.85, 1.25, 1.85)
 		this.scene.add(lightSide)
-
-		// const sphereSize = 0.3
-		// const pointLightHelper = new THREE.PointLightHelper(lightSide, sphereSize)
-		// this.scene.add(pointLightHelper)
 	}
 	#createLoaders() {
 		this.loadingManager = new THREE.LoadingManager()

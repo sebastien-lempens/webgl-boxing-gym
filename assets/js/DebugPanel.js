@@ -8,28 +8,16 @@ export default class DebugPanel {
 	}
 	init() {
 		this.pane = new Pane()
-		this.#scenePanel()
-		this.pane.addFolder({ title: 'Effects' })
+		this.paneInstance = this.pane.addFolder({ title: 'Effects', expanded: false })
 		this.#effectBloomPanel()
-		this.pane.addSeparator()
+		this.paneInstance.addSeparator()
 		this.#effectGodOfRaysPanel()
-		this.pane.addSeparator()
+		this.paneInstance.addSeparator()
 		this.#effectDofPanel()
 	}
-	#scenePanel() {
-		this.pane.addFolder({ title: 'Scene' })
-		this.pane
-			.addInput({ background: { r: 18, g: 18, b: 18 } }, 'background', {
-				label: 'Background Color',
-			})
-			.on('change', (e) => {
-				this.app.renderer.setClearColor(
-					new THREE.Color(e.value.r / 255, e.value.g / 255, e.value.b / 255)
-				)
-			})
-	}
+
 	#effectDofPanel() {
-		this.pane
+		this.paneInstance
 			.addInput(
 				{ bokehScale: this.app.params.effects.dof.scale },
 				'bokehScale',
@@ -50,7 +38,7 @@ export default class DebugPanel {
 					}
 				})
 			})
-		this.pane
+		this.paneInstance
 			.addInput(
 				{ focusDistance: this.app.params.effects.dof.focusDistance },
 				'focusDistance',
@@ -72,7 +60,7 @@ export default class DebugPanel {
 					}
 				})
 			})
-		this.pane
+		this.paneInstance
 			.addInput(
 				{ focalLength: this.app.params.effects.dof.focalLength },
 				'focalLength',
@@ -96,7 +84,7 @@ export default class DebugPanel {
 			})
 	}
 	#effectGodOfRaysPanel() {
-		this.pane
+		this.paneInstance
 			.addInput(
 				{ density: this.app.params.effects.godrays.density },
 				'density',
@@ -117,7 +105,7 @@ export default class DebugPanel {
 					}
 				})
 			})
-		this.pane
+		this.paneInstance
 			.addInput({ decay: this.app.params.effects.godrays.decay }, 'decay', {
 				label: 'Decay',
 				min: 0.8,
@@ -134,7 +122,7 @@ export default class DebugPanel {
 					}
 				})
 			})
-		this.pane
+		this.paneInstance
 			.addInput(
 				{ exposure: this.app.params.effects.godrays.exposure },
 				'exposure',
@@ -157,7 +145,7 @@ export default class DebugPanel {
 			})
 	}
 	#effectBloomPanel() {
-		this.pane
+		this.paneInstance
 			.addInput(
 				{ intensity: this.app.params.effects.bloom.intensity },
 				'intensity',
@@ -178,7 +166,7 @@ export default class DebugPanel {
 					}
 				})
 			})
-		this.pane
+		this.paneInstance
 			.addInput(
 				{
 					luminanceSmoothing: this.app.params.effects.bloom.luminanceSmoothing,
@@ -202,7 +190,7 @@ export default class DebugPanel {
 					}
 				})
 			})
-		this.pane
+		this.paneInstance
 			.addInput(
 				{
 					luminanceThreshold: this.app.params.effects.bloom.luminanceThreshold,
