@@ -12,6 +12,7 @@
     "vite-plugin-import-maps": "^0.1.2"
   },
   "dependencies": {
+    "postprocessing": "^6.24.1",
     "three": "^0.137.5",
     "tweakpane": "^3.0.7"
   }

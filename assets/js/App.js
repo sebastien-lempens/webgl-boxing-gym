@@ -1,5 +1,19 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import {
+	BloomEffect,
+	GodRaysEffect,
+	EffectComposer,
+	EffectPass,
+	RenderPass,
+	BlendFunction,
+	DepthOfFieldEffect,
+	HueSaturationEffect,
+	BrightnessContrastEffect,
+	SMAAEffect,
+	VignetteEffect,
+	NoiseEffect,
+} from 'postprocessing'
 
 export default class App {
 	#resizeCallback = () => this.#onResize()
@@ -15,6 +29,7 @@ export default class App {
 		this.#createScene()
 		this.#createCamera()
 		this.#createRenderer()
+		this.#createComposer()
 		this.#createLight()
 		this.#createClock()
 		this.#addListeners()
@@ -22,6 +37,8 @@ export default class App {
 		this.#createDebugPanel()
 		this.#createLoaders()
 		await this.#loadModel()
+		this.#addEffects()
+
 		this.renderer.setAnimationLoop(() => {
 			this.#update()
 			this.#render()
@@ -42,44 +59,82 @@ export default class App {
 				}
 			})
 		}
+		this.params.uniforms.time = elapsed
 	}
 
 	#render() {
-		this.renderer.render(this.scene, this.camera)
+		this.composer.render()
 	}
 	#createParams() {
 		this.params = {
 			onTickModel: [],
 			mouse: new THREE.Vector2(),
+			uniforms: {
+				time: 0,
+			},
+			isSceneLoaded: false,
+			effects: {
+				godrays: {
+					density: 3.2,
+					decay: 0.8,
+					exposure: 1.7,
+				},
+				bloom: {
+					luminanceThreshold: 0.01,
+					luminanceSmoothing: 0.01,
+					intensity: 0.15,
+				},
+				dof: {
+					scale: 2.5,
+					focusDistance: 0.05,
+					focalLength: 0.05,
+				},
+			},
+			particles: 1500,
 		}
 	}
 	#createScene() {
 		this.scene = new THREE.Scene()
+		this.sceneTarget = new THREE.Scene()
+		this.sceneTarget.background = new THREE.Color({ color: 'yellow' })
 	}
 	#createCamera() {
 		this.camera = new THREE.PerspectiveCamera(
 			45,
 			this.container.clientWidth / this.container.clientHeight,
 			0.01,
-			200
+			100
 		)
 		this.camera.position.set(-2, 2, 4)
+		this.cameraTarget = new THREE.OrthographicCamera()
+		this.cameraTarget.position.z = 0.1
 	}
 	#createRenderer() {
 		this.renderer = new THREE.WebGLRenderer({
+			powerPreference: 'high-performance',
 			alpha: true,
 			antialias: window.devicePixelRatio === 1,
+			stencil: false,
+			depth: false,
 		})
-
 		this.container.appendChild(this.renderer.domElement)
-
 		this.renderer.setSize(
 			this.container.clientWidth,
 			this.container.clientHeight
 		)
 		this.renderer.setPixelRatio(Math.min(1.5, window.devicePixelRatio))
-		this.renderer.setClearColor(0x121212)
+		this.renderer.setClearColor(0x000000)
 		this.renderer.physicallyCorrectLights = true
+		this.renderer.toneMapping = 5
+		this.renderer.toneMappingExposure = 0.135
+		// this.renderer.outputEncoding = THREE.sRGBEncoding
+    console.log(this.renderer);
+	}
+	#createComposer() {
+		this.composer = new EffectComposer(this.renderer, {
+			frameBufferType: THREE.HalfFloatType,
+		})
+		this.composer.addPass(new RenderPass(this.scene, this.camera))
 	}
 	#createLight() {
 		const light = new THREE.AmbientLight(0xffffff)
@@ -87,21 +142,20 @@ export default class App {
 		this.scene.add(light)
 
 		const lightWindow = new THREE.PointLight(
-			new THREE.Color('rgb(120,140,180)'),
-			5,
+			new THREE.Color('rgb(29,25%,63%)'),
+			4,
 			4,
 			-1.5
 		)
 		lightWindow.name = 'lightWindow'
-		lightWindow.position.set(1.2, 2, -1.2)
+		lightWindow.position.set(1.2, 2.5, -1.2)
+		this.lightWindow = lightWindow
 		this.scene.add(lightWindow)
 
-		const lightSide = new THREE.PointLight(
-			new THREE.Color('hsl(228,35%,54%)'),
-			0.35,
-			4.15,
-			-2.8
-		)
+		const lightSide = new THREE.PointLight(new THREE.Color('hsl(209,35%,54%)'))
+		lightSide.intensity = 0.35
+		lightSide.distance = 5.67
+		lightSide.decay = -2.5
 		lightSide.name = 'lightSide'
 		lightSide.position.set(-2.85, 1.25, 1.85)
 		this.scene.add(lightSide)
@@ -125,11 +179,97 @@ export default class App {
 
 		//	this.gltfLoader = new GLTFLoader(this.loadingManager)
 	}
-	/**
-	 * Load Models and append them to the scene
-	 */
 	async #loadModel() {
 		const loadModels = new (await import('./Models.js')).default()
+	}
+	async #addEffects() {
+		/** DepthOfFieldEffect */
+		this.composer.addPass(
+			new EffectPass(
+				this.camera,
+				new DepthOfFieldEffect(this.camera, {
+					bokehScale: this.params.effects.dof.scale,
+					focusDistance: this.params.effects.dof.focusDistance,
+					focalLength: this.params.effects.dof.focalLength,
+				})
+			)
+		)
+		/** BloomEffect */
+		this.composer.addPass(
+			new EffectPass(
+				this.camera,
+				new BloomEffect({
+					luminanceThreshold: this.params.effects.bloom.luminanceThreshold,
+					luminanceSmoothing: this.params.effects.bloom.luminanceSmoothing,
+					intensity: this.params.effects.bloom.intensity,
+				})
+			)
+		)
+		/** HueSaturationEffect */
+		this.composer.addPass(
+			new EffectPass(this.camera, new HueSaturationEffect({ saturation: -0.2 }))
+		)
+		/** BrightnessContrastEffect */
+		this.composer.addPass(
+			new EffectPass(
+				this.camera,
+				new BrightnessContrastEffect({ brightness: -0.05, contrast: -0.15 })
+			)
+		)
+		/** SMAAEffect */
+		const areaImage = new Image()
+		areaImage.src = SMAAEffect.areaImageDataURL
+		const searchImage = new Image()
+		searchImage.src = SMAAEffect.searchImageDataURL
+		this.composer.addPass(
+			new EffectPass(this.camera, new SMAAEffect(searchImage, areaImage))
+		)
+		/** VignetteEffect */
+		this.composer.addPass(new EffectPass(this.camera, new VignetteEffect()))
+
+		/** NoiseEffect */
+		this.composer.addPass(
+			new EffectPass(
+				this.camera,
+				new NoiseEffect({ blendFunction: BlendFunction.SCREEN, premultiply: true })
+			)
+		)
+
+		this.composer.passes.forEach((pass) => {
+			if (pass && pass.name === 'EffectPass') {
+				const [effect] = pass.effects
+				if (effect && effect.name === 'NoiseEffect') {
+          console.log(effect);
+					effect.blendMode.opacity.value = 0.65
+				}
+			}
+		})
+		/** GodRaysEffect */
+		this.scene.onAfterRender = (webgl, scene) => {
+			if (this.params.isSceneLoaded) {
+				return
+			}
+			scene.traverse((item) => {
+				if (item.name === 'WindowLight') {
+					this.params.isSceneLoaded = true
+					this.composer.addPass(
+						new EffectPass(
+							this.camera,
+							new GodRaysEffect(this.camera, item, {
+								blur: true,
+								blurriness: 15,
+								samples: 80,
+								clampMax: 0.9,
+								weight: 0.5,
+								decay: this.params.effects.godrays.decay,
+								density: this.params.effects.godrays.density,
+								exposure: this.params.effects.godrays.exposure,
+							})
+						)
+					)
+				}
+			})
+		}
 	}
 	#createControls() {
 		this.controls = new OrbitControls(this.camera, this.renderer.domElement)
@@ -141,19 +281,6 @@ export default class App {
 		 */
 		const loadDebugPanel = new (await import('./DebugPanel.js')).default()
 		this.pane = loadDebugPanel.pane
-		/**
-		 * Scene configuration
-		 */
-		this.pane.addFolder({ title: 'Scene' })
-		this.pane
-			.addInput({ background: { r: 18, g: 18, b: 18 } }, 'background', {
-				label: 'Background Color',
-			})
-			.on('change', (e) => {
-				this.renderer.setClearColor(
-					new THREE.Color(e.value.r / 255, e.value.g / 255, e.value.b / 255)
-				)
-			})
 	}
 	#createClock() {
 		this.clock = new THREE.Clock()
