@@ -11,10 +11,12 @@ import {
 	HueSaturationEffect,
 	BrightnessContrastEffect,
 	SMAAEffect,
+	SMAAImageLoader,
 	VignetteEffect,
 	NoiseEffect,
+	ShaderPass,
 } from 'postprocessing'
-
+import myShaderPass from './customPass'
 export default class App {
 	#resizeCallback = () => this.#onResize()
 	#mouseMoveCallback = (e) => this.#onMouseMove(e)
@@ -86,7 +88,7 @@ export default class App {
 				},
 				dof: {
 					scale: 2.5,
-					focusDistance: 0.05,
+					focusDistance: 0.045,
 					focalLength: 0.07,
 				},
 			},
@@ -122,7 +124,8 @@ export default class App {
 			this.container.clientWidth,
 			this.container.clientHeight
 		)
-		this.renderer.setPixelRatio(Math.min(1.5, window.devicePixelRatio))
+	//	this.renderer.setPixelRatio(Math.min(1.5, window.devicePixelRatio))
+		this.renderer.setPixelRatio(window.devicePixelRatio/4)
 		this.renderer.setClearColor(new THREE.Color('#282b2c'))
 		this.renderer.physicallyCorrectLights = true
 		this.renderer.toneMapping = 5
@@ -135,12 +138,12 @@ export default class App {
 	}
 	#createLight() {
 		const light = new THREE.AmbientLight(new THREE.Color('hsl(47,96%,65%)'))
-		light.intensity = 0.8
+		light.intensity = 0.4
 		this.scene.add(light)
 
 		const lightWindow = new THREE.PointLight(
-			new THREE.Color('rgb(29,25%,63%)'),
-			2.5,
+			new THREE.Color('hsl(29,25%,63%)'),
+			3.25,
 			4,
 			-1.5
 		)
@@ -150,7 +153,7 @@ export default class App {
 		this.scene.add(lightWindow)
 
 		const lightSide = new THREE.PointLight(new THREE.Color('hsl(206,54%,58%)'))
-		lightSide.intensity = 0.5
+		lightSide.intensity = 0.6
 		lightSide.distance = 7
 		lightSide.decay = -2.35
 		lightSide.name = 'lightSide'
@@ -163,7 +166,7 @@ export default class App {
 		this.loadingManager.onProgress = (url, loaded, total) => {
 			// In case the progress count is not correct, see this:
 			// https://discourse.threejs.org/t/gltf-file-loaded-twice-when-loading-is-initiated-in-loadingmanager-inside-onprogress-callback/27799/2
-				console.log(`Loaded ${loaded} resources out of ${total} -> ${url}`)
+			console.log(`Loaded ${loaded} resources out of ${total} -> ${url}`)
 		}
 
 		this.loadingManager.onLoad = () => {
@@ -200,16 +203,18 @@ export default class App {
 		)
 		/** HueSaturationEffect */
 		this.composer.addPass(
-			new EffectPass(this.camera, new HueSaturationEffect({ saturation: -0.15 }))
+			new EffectPass(
+				this.camera,
+				new HueSaturationEffect({ saturation: -0.15 })
+			)
 		)
 		/** BrightnessContrastEffect */
 		this.composer.addPass(
 			new EffectPass(
 				this.camera,
-				new BrightnessContrastEffect({ brightness: -0.05, contrast: -0.15 })
+				new BrightnessContrastEffect({ brightness: -0.05, contrast: -0.2 })
 			)
 		)
-
 		/** NoiseEffect */
 		this.composer.addPass(
 			new EffectPass(
@@ -220,7 +225,6 @@ export default class App {
 				})
 			)
 		)
-
 		this.composer.passes.forEach((pass) => {
 			if (pass && pass.name === 'EffectPass') {
 				const [effect] = pass.effects
@@ -255,17 +259,28 @@ export default class App {
 				}
 			})
 		}
-
 		/** SMAAEffect */
-		const areaImage = new Image()
-		areaImage.src = SMAAEffect.areaImageDataURL
-		const searchImage = new Image()
-		searchImage.src = SMAAEffect.searchImageDataURL
+		const assets = new Map()
+		const smaaImageLoader = new SMAAImageLoader(this.loadingManager)
+		await new Promise((resolve) => {
+			smaaImageLoader.load(([search, area]) => {
+				assets.set('smaa-search', search)
+				assets.set('smaa-area', area)
+				resolve()
+			})
+		})
 		this.composer.addPass(
-			new EffectPass(this.camera, new SMAAEffect(searchImage, areaImage))
+			new EffectPass(
+				this.camera,
+				new SMAAEffect(assets.get('smaa-search'), assets.get('smaa-area'))
+			)
 		)
 		/** VignetteEffect */
 		this.composer.addPass(new EffectPass(this.camera, new VignetteEffect()))
+
+		/** Custom */
+	//	this.composer.addPass(myShaderPass)
+		console.log(this.composer)
 	}
 	#createControls() {
 		this.controls = new OrbitControls(this.camera, this.renderer.domElement)
@@ -303,7 +318,7 @@ export default class App {
 		this.camera.aspect =
 			this.container.clientWidth / this.container.clientHeight
 		this.camera.updateProjectionMatrix()
-		this.renderer.setSize(
+		this.composer.setSize(
 			this.container.clientWidth,
 			this.container.clientHeight
 		)

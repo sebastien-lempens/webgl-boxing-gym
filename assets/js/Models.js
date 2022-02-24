@@ -148,11 +148,12 @@ export default class Models {
 							const [FanCage] = child.children.filter(
 								({ name }) => name === 'FanCage'
 							)
+              FanCage.material.color = new THREE.Color('hsl(24,77%,68%)')
 							FanCage.material.roughness = 0.15
 							FanCage.material.metalness = 0.8
 							this.app.params.onTickModel.push(fanBlade)
 							fanBlade.onTick = (t) => {
-								fanBlade.rotation.z = -t * 20
+								fanBlade.rotation.z = -t * 40
 							}
 						}
 					})
@@ -168,7 +169,7 @@ export default class Models {
 		const sizes = []
 		for (let i = 0; i < this.app.params.particles; i++) {
 			let x = 2.5 - THREE.MathUtils.randFloat(0, 3)
-			const y = THREE.MathUtils.randFloat(1.5, Math.max(2.2, 1)) - i * 0.0005
+			const y = THREE.MathUtils.randFloat(0.8, Math.max(2.2, 1)) - i * 0.0005
 			let z = -1.5 + i * 0.001 + i * 0.0005
 			vertices.push(x, y, z)
 			sizes.push(THREE.MathUtils.randInt(3, 10))
