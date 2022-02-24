@@ -89,7 +89,7 @@ export default class DebugPanel {
 				{ density: this.app.params.effects.godrays.density },
 				'density',
 				{
-					label: 'Density',
+					label: 'GoR Density',
 					min: 0,
 					max: 10,
 					step: 0.001,
@@ -107,8 +107,8 @@ export default class DebugPanel {
 			})
 		this.paneInstance
 			.addInput({ decay: this.app.params.effects.godrays.decay }, 'decay', {
-				label: 'Decay',
-				min: 0.8,
+				label: 'GoR Decay',
+				min: 0.0,
 				max: 1,
 				step: 0.001,
 			})
@@ -127,8 +127,8 @@ export default class DebugPanel {
 				{ exposure: this.app.params.effects.godrays.exposure },
 				'exposure',
 				{
-					label: 'Exposure',
-					min: 1,
+					label: 'GoR Exposure',
+					min: 0,
 					max: 3,
 					step: 0.001,
 				}
