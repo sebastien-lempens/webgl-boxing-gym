@@ -7,12 +7,102 @@
     {
       "type": "SCALAR",
       "componentType": 5123,
-      "count": 288
+      "count": 31272
     },
     {
       "type": "VEC3",
       "componentType": 5126,
-      "count": 144,
+      "count": 7222,
+      "max": [
+        0.08616472035646439,
+        0.1715857982635498,
+        0.10496441274881363
+      ],
+      "min": [
+        -0.1603478342294693,
+        -0.14748045802116394,
+        -0.0804591029882431
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 7222
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 7222
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 5568
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1474,
+      "max": [
+        0.001048559439368546,
+        0.0010675800731405616,
+        0.00040899490704759955
+      ],
+      "min": [
+        -0.001357933389954269,
+        -0.0014745495282113552,
+        -0.0004943760577589273
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 1474
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 1474
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 34512
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 8921,
+      "max": [
+        0.07173068821430206,
+        0.20775756239891052,
+        0.15748099982738495
+      ],
+      "min": [
+        -0.1033153161406517,
+        -0.11213700473308563,
+        -0.1570190042257309
+      ]
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 8921
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 8921
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 648
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 294,
       "max": [
         2.4001903533935547,
         2.3500797748565674,
@@ -27,12 +117,12 @@
     {
       "type": "VEC3",
       "componentType": 5126,
-      "count": 144
+      "count": 294
     },
     {
       "type": "VEC2",
       "componentType": 5126,
-      "count": 144
+      "count": 294
     },
     {
       "type": "SCALAR",
@@ -549,90 +639,105 @@
     {
       "buffer": 0,
       "byteOffset": 0,
-      "byteLength": 725
+      "byteLength": 40932
     },
     {
       "buffer": 1,
       "byteOffset": 0,
-      "byteLength": 365
+      "byteLength": 9984
     },
     {
       "buffer": 2,
       "byteOffset": 0,
-      "byteLength": 100678
+      "byteLength": 47676
     },
     {
       "buffer": 3,
       "byteOffset": 0,
-      "byteLength": 732
+      "byteLength": 1334
     },
     {
       "buffer": 4,
       "byteOffset": 0,
-      "byteLength": 2693
+      "byteLength": 365
     },
     {
       "buffer": 5,
       "byteOffset": 0,
-      "byteLength": 61155
+      "byteLength": 100678
     },
     {
       "buffer": 6,
       "byteOffset": 0,
-      "byteLength": 31045
+      "byteLength": 732
     },
     {
       "buffer": 7,
       "byteOffset": 0,
-      "byteLength": 333
+      "byteLength": 2693
     },
     {
       "buffer": 8,
       "byteOffset": 0,
-      "byteLength": 419921
+      "byteLength": 61155
     },
     {
       "buffer": 9,
       "byteOffset": 0,
-      "byteLength": 19261
+      "byteLength": 31045
     },
     {
       "buffer": 10,
       "byteOffset": 0,
-      "byteLength": 78003
+      "byteLength": 333
     },
     {
       "buffer": 11,
       "byteOffset": 0,
-      "byteLength": 370708
+      "byteLength": 419921
     },
     {
       "buffer": 12,
       "byteOffset": 0,
-      "byteLength": 10867
+      "byteLength": 19261
     },
     {
       "buffer": 13,
       "byteOffset": 0,
-      "byteLength": 97555
+      "byteLength": 78003
     },
     {
       "buffer": 14,
       "byteOffset": 0,
-      "byteLength": 146609
+      "byteLength": 370708
     },
     {
       "buffer": 15,
       "byteOffset": 0,
-      "byteLength": 654
+      "byteLength": 10867
     },
     {
       "buffer": 16,
       "byteOffset": 0,
-      "byteLength": 1186
+      "byteLength": 97555
     },
     {
       "buffer": 17,
+      "byteOffset": 0,
+      "byteLength": 146609
+    },
+    {
+      "buffer": 18,
+      "byteOffset": 0,
+      "byteLength": 654
+    },
+    {
+      "buffer": 19,
+      "byteOffset": 0,
+      "byteLength": 1186
+    },
+    {
+      "buffer": 20,
       "byteOffset": 0,
       "byteLength": 184
     }
@@ -640,81 +745,114 @@
   "buffers": [
     {
       "uri": "BoxingGym-draco_1.bin",
-      "byteLength": 725
+      "byteLength": 40932
     },
     {
       "uri": "BoxingGym-draco_2.bin",
-      "byteLength": 365
+      "byteLength": 9984
     },
     {
       "uri": "BoxingGym-draco_3.bin",
-      "byteLength": 100678
+      "byteLength": 47676
     },
     {
       "uri": "BoxingGym-draco_4.bin",
-      "byteLength": 732
+      "byteLength": 1334
     },
     {
       "uri": "BoxingGym-draco_5.bin",
-      "byteLength": 2693
+      "byteLength": 365
     },
     {
       "uri": "BoxingGym-draco_6.bin",
-      "byteLength": 61155
+      "byteLength": 100678
     },
     {
       "uri": "BoxingGym-draco_7.bin",
-      "byteLength": 31045
+      "byteLength": 732
     },
     {
       "uri": "BoxingGym-draco_8.bin",
-      "byteLength": 333
+      "byteLength": 2693
     },
     {
       "uri": "BoxingGym-draco_9.bin",
-      "byteLength": 419921
+      "byteLength": 61155
     },
     {
       "uri": "BoxingGym-draco_10.bin",
-      "byteLength": 19261
+      "byteLength": 31045
     },
     {
       "uri": "BoxingGym-draco_11.bin",
-      "byteLength": 78003
+      "byteLength": 333
     },
     {
       "uri": "BoxingGym-draco_12.bin",
-      "byteLength": 370708
+      "byteLength": 419921
     },
     {
       "uri": "BoxingGym-draco_13.bin",
-      "byteLength": 10867
+      "byteLength": 19261
     },
     {
       "uri": "BoxingGym-draco_14.bin",
-      "byteLength": 97555
+      "byteLength": 78003
     },
     {
       "uri": "BoxingGym-draco_15.bin",
-      "byteLength": 146609
+      "byteLength": 370708
     },
     {
       "uri": "BoxingGym-draco_16.bin",
-      "byteLength": 654
+      "byteLength": 10867
     },
     {
       "uri": "BoxingGym-draco_17.bin",
-      "byteLength": 1186
+      "byteLength": 97555
     },
     {
       "uri": "BoxingGym-draco_18.bin",
+      "byteLength": 146609
+    },
+    {
+      "uri": "BoxingGym-draco_19.bin",
+      "byteLength": 654
+    },
+    {
+      "uri": "BoxingGym-draco_20.bin",
+      "byteLength": 1186
+    },
+    {
+      "uri": "BoxingGym-draco_21.bin",
       "byteLength": 184
     }
   ],
   "materials": [
     {
+      "name": "Fan",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
+      "name": "FanMetal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1
+        ]
+      }
+    },
+    {
       "name": "Window",
-      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -726,7 +864,6 @@
     },
     {
       "name": "WindowLight",
-      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -738,7 +875,6 @@
     },
     {
       "name": "FoodBag",
-      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -750,7 +886,6 @@
     },
     {
       "name": "Ceiling",
-      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -762,7 +897,6 @@
     },
     {
       "name": "Bench",
-      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -774,7 +908,6 @@
     },
     {
       "name": "WaterBottle",
-      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -786,7 +919,6 @@
     },
     {
       "name": "Radiator",
-      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -798,7 +930,6 @@
     },
     {
       "name": "Carpet",
-      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -810,7 +941,6 @@
     },
     {
       "name": "BathTowel",
-      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -822,7 +952,6 @@
     },
     {
       "name": "Towel",
-      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -834,7 +963,6 @@
     },
     {
       "name": "Lockers",
-      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -846,7 +974,6 @@
     },
     {
       "name": "BoxingGlove",
-      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -858,7 +985,6 @@
     },
     {
       "name": "Tube",
-      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -870,7 +996,6 @@
     },
     {
       "name": "SportBag",
-      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -882,7 +1007,6 @@
     },
     {
       "name": "PunshingBall",
-      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -894,7 +1018,6 @@
     },
     {
       "name": "Walls",
-      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -906,7 +1029,6 @@
     },
     {
       "name": "Plaintes",
-      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -918,7 +1040,6 @@
     },
     {
       "name": "Floor",
-      "doubleSided": true,
       "pbrMetallicRoughness": {
         "baseColorFactor": [
           0.8,
@@ -931,7 +1052,7 @@
   ],
   "meshes": [
     {
-      "name": "Window",
+      "name": "Fan",
       "primitives": [
         {
           "attributes": {
@@ -956,7 +1077,7 @@
       ]
     },
     {
-      "name": "WindowLight",
+      "name": "FanBlade",
       "primitives": [
         {
           "attributes": {
@@ -981,7 +1102,7 @@
       ]
     },
     {
-      "name": "FoodBag",
+      "name": "FanCage",
       "primitives": [
         {
           "attributes": {
@@ -990,7 +1111,7 @@
             "TEXCOORD_0": 11
           },
           "mode": 4,
-          "material": 2,
+          "material": 1,
           "indices": 8,
           "extensions": {
             "KHR_draco_mesh_compression": {
@@ -1006,7 +1127,7 @@
       ]
     },
     {
-      "name": "Ceiling",
+      "name": "Window",
       "primitives": [
         {
           "attributes": {
@@ -1015,7 +1136,7 @@
             "TEXCOORD_0": 15
           },
           "mode": 4,
-          "material": 3,
+          "material": 2,
           "indices": 12,
           "extensions": {
             "KHR_draco_mesh_compression": {
@@ -1031,7 +1152,7 @@
       ]
     },
     {
-      "name": "Bench",
+      "name": "WindowLight",
       "primitives": [
         {
           "attributes": {
@@ -1040,7 +1161,7 @@
             "TEXCOORD_0": 19
           },
           "mode": 4,
-          "material": 4,
+          "material": 3,
           "indices": 16,
           "extensions": {
             "KHR_draco_mesh_compression": {
@@ -1056,7 +1177,7 @@
       ]
     },
     {
-      "name": "WaterBottle",
+      "name": "FoodBag",
       "primitives": [
         {
           "attributes": {
@@ -1065,7 +1186,7 @@
             "TEXCOORD_0": 23
           },
           "mode": 4,
-          "material": 5,
+          "material": 4,
           "indices": 20,
           "extensions": {
             "KHR_draco_mesh_compression": {
@@ -1081,7 +1202,7 @@
       ]
     },
     {
-      "name": "Radiator",
+      "name": "Ceiling",
       "primitives": [
         {
           "attributes": {
@@ -1090,7 +1211,7 @@
             "TEXCOORD_0": 27
           },
           "mode": 4,
-          "material": 6,
+          "material": 5,
           "indices": 24,
           "extensions": {
             "KHR_draco_mesh_compression": {
@@ -1106,7 +1227,7 @@
       ]
     },
     {
-      "name": "Carpet",
+      "name": "Bench",
       "primitives": [
         {
           "attributes": {
@@ -1115,7 +1236,7 @@
             "TEXCOORD_0": 31
           },
           "mode": 4,
-          "material": 7,
+          "material": 6,
           "indices": 28,
           "extensions": {
             "KHR_draco_mesh_compression": {
@@ -1131,7 +1252,7 @@
       ]
     },
     {
-      "name": "BathTowel",
+      "name": "WaterBottle",
       "primitives": [
         {
           "attributes": {
@@ -1140,7 +1261,7 @@
             "TEXCOORD_0": 35
           },
           "mode": 4,
-          "material": 8,
+          "material": 7,
           "indices": 32,
           "extensions": {
             "KHR_draco_mesh_compression": {
@@ -1156,7 +1277,7 @@
       ]
     },
     {
-      "name": "Towel",
+      "name": "Radiator",
       "primitives": [
         {
           "attributes": {
@@ -1165,7 +1286,7 @@
             "TEXCOORD_0": 39
           },
           "mode": 4,
-          "material": 9,
+          "material": 8,
           "indices": 36,
           "extensions": {
             "KHR_draco_mesh_compression": {
@@ -1181,7 +1302,7 @@
       ]
     },
     {
-      "name": "Lockers",
+      "name": "Carpet",
       "primitives": [
         {
           "attributes": {
@@ -1190,7 +1311,7 @@
             "TEXCOORD_0": 43
           },
           "mode": 4,
-          "material": 10,
+          "material": 9,
           "indices": 40,
           "extensions": {
             "KHR_draco_mesh_compression": {
@@ -1206,7 +1327,7 @@
       ]
     },
     {
-      "name": "BoxingGlove",
+      "name": "BathTowel",
       "primitives": [
         {
           "attributes": {
@@ -1215,7 +1336,7 @@
             "TEXCOORD_0": 47
           },
           "mode": 4,
-          "material": 11,
+          "material": 10,
           "indices": 44,
           "extensions": {
             "KHR_draco_mesh_compression": {
@@ -1231,7 +1352,7 @@
       ]
     },
     {
-      "name": "Tube",
+      "name": "Towel",
       "primitives": [
         {
           "attributes": {
@@ -1240,7 +1361,7 @@
             "TEXCOORD_0": 51
           },
           "mode": 4,
-          "material": 12,
+          "material": 11,
           "indices": 48,
           "extensions": {
             "KHR_draco_mesh_compression": {
@@ -1256,7 +1377,7 @@
       ]
     },
     {
-      "name": "SportBag",
+      "name": "Lockers",
       "primitives": [
         {
           "attributes": {
@@ -1265,7 +1386,7 @@
             "TEXCOORD_0": 55
           },
           "mode": 4,
-          "material": 13,
+          "material": 12,
           "indices": 52,
           "extensions": {
             "KHR_draco_mesh_compression": {
@@ -1281,7 +1402,7 @@
       ]
     },
     {
-      "name": "PunshingBall",
+      "name": "BoxingGlove",
       "primitives": [
         {
           "attributes": {
@@ -1290,7 +1411,7 @@
             "TEXCOORD_0": 59
           },
           "mode": 4,
-          "material": 14,
+          "material": 13,
           "indices": 56,
           "extensions": {
             "KHR_draco_mesh_compression": {
@@ -1306,7 +1427,7 @@
       ]
     },
     {
-      "name": "Walls",
+      "name": "Tube",
       "primitives": [
         {
           "attributes": {
@@ -1315,7 +1436,7 @@
             "TEXCOORD_0": 63
           },
           "mode": 4,
-          "material": 15,
+          "material": 14,
           "indices": 60,
           "extensions": {
             "KHR_draco_mesh_compression": {
@@ -1331,7 +1452,7 @@
       ]
     },
     {
-      "name": "Plaintes",
+      "name": "SportBag",
       "primitives": [
         {
           "attributes": {
@@ -1340,7 +1461,7 @@
             "TEXCOORD_0": 67
           },
           "mode": 4,
-          "material": 16,
+          "material": 15,
           "indices": 64,
           "extensions": {
             "KHR_draco_mesh_compression": {
@@ -1356,7 +1477,7 @@
       ]
     },
     {
-      "name": "Floor",
+      "name": "PunshingBall",
       "primitives": [
         {
           "attributes": {
@@ -1365,11 +1486,86 @@
             "TEXCOORD_0": 71
           },
           "mode": 4,
-          "material": 17,
+          "material": 16,
           "indices": 68,
           "extensions": {
             "KHR_draco_mesh_compression": {
               "bufferView": 17,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Walls",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 73,
+            "NORMAL": 74,
+            "TEXCOORD_0": 75
+          },
+          "mode": 4,
+          "material": 17,
+          "indices": 72,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 18,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Plaintes",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 77,
+            "NORMAL": 78,
+            "TEXCOORD_0": 79
+          },
+          "mode": 4,
+          "material": 18,
+          "indices": 76,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 19,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Floor",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 81,
+            "NORMAL": 82,
+            "TEXCOORD_0": 83
+          },
+          "mode": 4,
+          "material": 19,
+          "indices": 80,
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 20,
               "attributes": {
                 "POSITION": 0,
                 "NORMAL": 1,
@@ -1386,8 +1582,6 @@
       "name": "BoxingGym",
       "children": [
         1,
-        2,
-        3,
         4,
         5,
         6,
@@ -1402,19 +1596,57 @@
         15,
         16,
         17,
-        18
+        18,
+        19,
+        20,
+        21
       ]
     },
     {
-      "name": "Window",
-      "mesh": 0
+      "name": "Fan",
+      "translation": [
+        1.2415519952774048,
+        0.5771429538726807,
+        -1.2710518836975098
+      ],
+      "rotation": [
+        3.959141845051947e-16,
+        -0.32313278317451477,
+        -1.3518504224857764e-16,
+        -0.9463536143302917
+      ],
+      "mesh": 0,
+      "children": [
+        2,
+        3
+      ]
     },
     {
-      "name": "WindowLight",
+      "name": "FanBlade",
       "translation": [
-        1.1585187911987305,
-        2.0193674564361572,
-        -1.918775200843811
+        -0.10667140781879425,
+        0.13048425316810608,
+        0.011499114334583282
+      ],
+      "rotation": [
+        0.43357419967651367,
+        -0.5585816502571106,
+        0.5585815906524658,
+        -0.43357419967651367
+      ],
+      "scale": [
+        100,
+        100,
+        100
+      ],
+      "mesh": 1
+    },
+    {
+      "name": "FanCage",
+      "translation": [
+        -0.11741634458303452,
+        0.08545897156000137,
+        0.01497475616633892
       ],
       "rotation": [
         0,
@@ -1422,7 +1654,26 @@
         0,
         -1
       ],
-      "mesh": 1
+      "mesh": 2
+    },
+    {
+      "name": "Window",
+      "mesh": 3
+    },
+    {
+      "name": "WindowLight",
+      "translation": [
+        1.1585187911987305,
+        2.0193674564361572,
+        -1.979556918144226
+      ],
+      "rotation": [
+        0,
+        0,
+        0,
+        -1
+      ],
+      "mesh": 4
     },
     {
       "name": "FoodBag",
@@ -1437,7 +1688,7 @@
         0,
         -0.7071067690849304
       ],
-      "mesh": 2
+      "mesh": 5
     },
     {
       "name": "Ceiling",
@@ -1452,7 +1703,7 @@
         0,
         -1
       ],
-      "mesh": 3
+      "mesh": 6
     },
     {
       "name": "Bench",
@@ -1467,7 +1718,7 @@
         0,
         -1
       ],
-      "mesh": 4
+      "mesh": 7
     },
     {
       "name": "WaterBottle",
@@ -1482,7 +1733,7 @@
         0,
         -1
       ],
-      "mesh": 5
+      "mesh": 8
     },
     {
       "name": "Radiator",
@@ -1497,7 +1748,7 @@
         0,
         -0.7071067690849304
       ],
-      "mesh": 6
+      "mesh": 9
     },
     {
       "name": "Carpet",
@@ -1512,7 +1763,7 @@
         0,
         -1
       ],
-      "mesh": 7
+      "mesh": 10
     },
     {
       "name": "BathTowel",
@@ -1527,7 +1778,7 @@
         8.146033536604591e-8,
         -6.123234262925839e-17
       ],
-      "mesh": 8
+      "mesh": 11
     },
     {
       "name": "Towel",
@@ -1542,7 +1793,7 @@
         0,
         -0.7071067690849304
       ],
-      "mesh": 9
+      "mesh": 12
     },
     {
       "name": "Lockers",
@@ -1557,7 +1808,7 @@
         0,
         0.7071067690849304
       ],
-      "mesh": 10
+      "mesh": 13
     },
     {
       "name": "BoxingGlove",
@@ -1572,7 +1823,7 @@
         0,
         0.893869936466217
       ],
-      "mesh": 11
+      "mesh": 14
     },
     {
       "name": "Tube",
@@ -1587,7 +1838,7 @@
         0,
         -1
       ],
-      "mesh": 12
+      "mesh": 15
     },
     {
       "name": "SportBag",
@@ -1602,7 +1853,7 @@
         5.760115939779098e-8,
         -0.7071067690849304
       ],
-      "mesh": 13
+      "mesh": 16
     },
     {
       "name": "PunshingBall",
@@ -1617,7 +1868,7 @@
         0,
         -1
       ],
-      "mesh": 14
+      "mesh": 17
     },
     {
       "name": "Walls",
@@ -1632,15 +1883,15 @@
         0,
         -1
       ],
-      "mesh": 15
+      "mesh": 18
     },
     {
       "name": "Plaintes",
-      "mesh": 16
+      "mesh": 19
     },
     {
       "name": "Floor",
-      "mesh": 17
+      "mesh": 20
     }
   ],
   "scenes": [

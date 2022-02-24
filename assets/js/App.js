@@ -75,9 +75,9 @@ export default class App {
       isSceneLoaded: false,
       effects: {
         godrays: {
-          density: 3.2,
+          density: 2.5,
           decay: 0.8,
-          exposure: 1.7,
+          exposure: 1.2,
         },
         bloom: {
           luminanceThreshold: 0.01,
@@ -140,7 +140,7 @@ export default class App {
 
     const lightWindow = new THREE.PointLight(
       new THREE.Color('rgb(29,25%,63%)'),
-      4,
+      2.5,
       4,
       -1.5
     )
@@ -225,7 +225,6 @@ export default class App {
       if (pass && pass.name === 'EffectPass') {
         const [effect] = pass.effects
         if (effect && effect.name === 'NoiseEffect') {
-          console.log(effect)
           effect.blendMode.opacity.value = 0.45
         }
       }
