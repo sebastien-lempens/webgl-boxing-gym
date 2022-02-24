@@ -2,7 +2,6 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
 import { ShaderMaterial } from 'three'
-import { clamp } from 'three/src/math/mathutils'
 
 export default class Models {
 	constructor() {
