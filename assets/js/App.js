@@ -124,8 +124,9 @@ export default class App {
 			this.container.clientWidth,
 			this.container.clientHeight
 		)
-	//	this.renderer.setPixelRatio(Math.min(1.5, window.devicePixelRatio))
-		this.renderer.setPixelRatio(window.devicePixelRatio/4)
+		//this.renderer.setPixelRatio(Math.min(1.5, window.devicePixelRatio))
+		this.renderer.setPixelRatio(2)
+	//	this.renderer.setPixelRatio(window.devicePixelRatio/4)
 		this.renderer.setClearColor(new THREE.Color('#282b2c'))
 		this.renderer.physicallyCorrectLights = true
 		this.renderer.toneMapping = 5
