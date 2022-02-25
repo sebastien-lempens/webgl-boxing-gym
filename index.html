@@ -15,11 +15,27 @@
     body {
       overflow: hidden;
       font-family: Helvetica, Arial, serif;
+      background-color: black;
     }
 
     #App {
       width: 100vw;
       height: 100vh;
+    }
+
+    .loading {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      text-align: center;
+      transform: translateY(-50%);
+      font-weight: bold;
+      color:white;
+      transition: all 1200ms ease .4s;
+    }
+    .loading.end {
+      opacity: 0;
+      transform: translateY(10px);
     }
 
     legend {
@@ -47,6 +63,7 @@
 </head>
 
 <body>
+  <div class="loading">B🥊xing // <span>0</span>%</div>
   <div id="App"></div>
   <script type="module" src="./main.js"></script>
   <legend>

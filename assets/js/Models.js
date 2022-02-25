@@ -147,7 +147,7 @@ export default class Models {
 							const [FanCage] = child.children.filter(
 								({ name }) => name === 'FanCage'
 							)
-              FanCage.material.color = new THREE.Color('hsl(24,77%,68%)')
+							FanCage.material.color = new THREE.Color('hsl(24,77%,68%)')
 							FanCage.material.roughness = 0.15
 							FanCage.material.metalness = 0.8
 							this.app.params.onTickModel.push(fanBlade)
@@ -171,7 +171,11 @@ export default class Models {
 			const y = THREE.MathUtils.randFloat(0.8, Math.max(2.2, 1)) - i * 0.0005
 			let z = -1.5 + i * 0.001 + i * 0.0005
 			vertices.push(x, y, z)
-			sizes.push(THREE.MathUtils.randInt(3, 10))
+			if (this.app.params.device === 'mobile') {
+				sizes.push(THREE.MathUtils.randInt(1, 2))
+			} else {
+				sizes.push(THREE.MathUtils.randInt(3, 10))
+			}
 		}
 		const particleGeometry = new THREE.BufferGeometry()
 		particleGeometry.setAttribute(
@@ -189,7 +193,7 @@ export default class Models {
 			blending: THREE.AdditiveBlending,
 			depthTest: true,
 			transparent: true,
-      side:THREE.DoubleSide,
+			side: THREE.DoubleSide,
 			uniforms: {
 				uTime: { value: 0 },
 			},
@@ -199,8 +203,9 @@ export default class Models {
       varying float vSize;
       void main() {
         vec3 updatedPosition = position;
-        updatedPosition.x += cos(updatedPosition.z * 50.0 + uTime*0.08)*0.2;
-        updatedPosition.y += sin(updatedPosition.x + uTime*0.05)*0.05;
+        updatedPosition.x += cos(updatedPosition.y * 50.0 + uTime*0.028)*2.2;
+        updatedPosition.z += cos(updatedPosition.z * 50.0 + uTime*0.08)*2.2;
+        updatedPosition.y += sin(updatedPosition.x + uTime*0.025)*1.05;
         gl_Position = projectionMatrix * viewMatrix * (modelMatrix * vec4(updatedPosition, 1.0));
         gl_PointSize = size;
         vec4 glPosition = viewMatrix * modelMatrix * vec4(updatedPosition, 1.0);
@@ -211,10 +216,10 @@ export default class Models {
 			fragmentShader: `
       varying float vSize;
       void main() {
-        float centerPoint = 1.1 - length(gl_PointCoord - 0.5) ;
+        float centerPoint = 1. - length(gl_PointCoord - 0.5) ;
         float point = pow(centerPoint, 8.0);
         vec3 mixColor = mix(vec3(0.0), vec3(0.85), point);
-        gl_FragColor = vec4(mixColor, .5);
+        gl_FragColor = vec4(mixColor, .65);
       }
 		`,
 		})

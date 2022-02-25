@@ -14,9 +14,9 @@ import {
 	SMAAImageLoader,
 	VignetteEffect,
 	NoiseEffect,
-	ShaderPass,
 } from 'postprocessing'
 import myShaderPass from './customPass'
+
 export default class App {
 	#resizeCallback = () => this.#onResize()
 	#mouseMoveCallback = (e) => this.#onMouseMove(e)
@@ -37,9 +37,9 @@ export default class App {
 		this.#addListeners()
 		this.#createControls()
 		this.#createDebugPanel()
-		this.#createLoaders()
 		await this.#loadModel()
 		this.#addEffects()
+		this.#createLoaders()
 
 		this.renderer.setAnimationLoop(() => {
 			this.#update()
@@ -69,6 +69,22 @@ export default class App {
 	}
 	#createParams() {
 		this.params = {
+			get device() {
+				let device = null
+				if (window.matchMedia('(min-width: 400px)').matches) {
+					device = 'mobile'
+				}
+				if (window.matchMedia('(min-width: 768px)').matches) {
+					device = 'tablet'
+				}
+				if (window.matchMedia('(min-width: 1200px)').matches) {
+					device = 'desktop'
+				}
+				return device
+			},
+			loading: {
+				el: document.querySelector('.loading'),
+			},
 			onTickModel: [],
 			mouse: new THREE.Vector2(),
 			uniforms: {
@@ -92,13 +108,15 @@ export default class App {
 					focalLength: 0.07,
 				},
 			},
+			opening: {
+				delay: 4,
+			},
 			particles: 2000,
 		}
 	}
 	#createScene() {
 		this.scene = new THREE.Scene()
 		this.sceneTarget = new THREE.Scene()
-		this.sceneTarget.background = new THREE.Color({ color: 'yellow' })
 	}
 	#createCamera() {
 		this.camera = new THREE.PerspectiveCamera(
@@ -107,15 +125,15 @@ export default class App {
 			0.01,
 			100
 		)
-		this.camera.position.set(-2, 2, 4)
+		this.camera.position.set(-5, 1, 4)
 		this.cameraTarget = new THREE.OrthographicCamera()
 		this.cameraTarget.position.z = 0.1
 	}
 	#createRenderer() {
 		this.renderer = new THREE.WebGLRenderer({
 			powerPreference: 'high-performance',
-			alpha: true,
-			antialias: window.devicePixelRatio === 1,
+			//alpha: true,
+			//	antialias: window.devicePixelRatio === 1,
 			stencil: false,
 			depth: false,
 		})
@@ -124,10 +142,15 @@ export default class App {
 			this.container.clientWidth,
 			this.container.clientHeight
 		)
-		//this.renderer.setPixelRatio(Math.min(1.5, window.devicePixelRatio))
-		this.renderer.setPixelRatio(2)
-	//	this.renderer.setPixelRatio(window.devicePixelRatio/4)
-		this.renderer.setClearColor(new THREE.Color('#282b2c'))
+		let pixelRatio = 2
+		if (this.params.device === 'tablet') {
+			pixelRatio = 1
+		} else if (this.params.device === 'mobile') {
+			pixelRatio = 1 / 4
+		}
+		//console.log(this.params.device, pixelRatio);
+		this.renderer.setPixelRatio(pixelRatio)
+		this.renderer.setClearColor(new THREE.Color('black'))
 		this.renderer.physicallyCorrectLights = true
 		this.renderer.toneMapping = 5
 	}
@@ -167,11 +190,15 @@ export default class App {
 		this.loadingManager.onProgress = (url, loaded, total) => {
 			// In case the progress count is not correct, see this:
 			// https://discourse.threejs.org/t/gltf-file-loaded-twice-when-loading-is-initiated-in-loadingmanager-inside-onprogress-callback/27799/2
-			console.log(`Loaded ${loaded} resources out of ${total} -> ${url}`)
+			//	console.log(`Loaded ${loaded} resources out of ${total} -> ${url}`)
+			const [span] = Array.from(this.params.loading.el.children)
+			span.innerHTML = Math.floor((loaded / total) * 100)
 		}
 
-		this.loadingManager.onLoad = () => {
+		this.loadingManager.onLoad = async () => {
 			console.log('All resources loaded')
+			this.params.loading.el.classList.add('end')
+			await this.#opening()
 		}
 
 		//	this.gltfLoader = new GLTFLoader(this.loadingManager)
@@ -180,68 +207,55 @@ export default class App {
 		const loadModels = new (await import('./Models.js')).default()
 	}
 	async #addEffects() {
-		/** DepthOfFieldEffect */
-		this.composer.addPass(
-			new EffectPass(
-				this.camera,
-				new DepthOfFieldEffect(this.camera, {
-					bokehScale: this.params.effects.dof.scale,
-					focusDistance: this.params.effects.dof.focusDistance,
-					focalLength: this.params.effects.dof.focalLength,
-				})
-			)
-		)
-		/** BloomEffect */
-		this.composer.addPass(
-			new EffectPass(
-				this.camera,
-				new BloomEffect({
-					luminanceThreshold: this.params.effects.bloom.luminanceThreshold,
-					luminanceSmoothing: this.params.effects.bloom.luminanceSmoothing,
-					intensity: this.params.effects.bloom.intensity,
-				})
-			)
-		)
-		/** HueSaturationEffect */
-		this.composer.addPass(
-			new EffectPass(
-				this.camera,
-				new HueSaturationEffect({ saturation: -0.15 })
-			)
-		)
-		/** BrightnessContrastEffect */
-		this.composer.addPass(
-			new EffectPass(
-				this.camera,
-				new BrightnessContrastEffect({ brightness: -0.05, contrast: -0.2 })
-			)
-		)
-		/** NoiseEffect */
-		this.composer.addPass(
-			new EffectPass(
-				this.camera,
-				new NoiseEffect({
-					blendFunction: BlendFunction.SCREEN,
-					premultiply: true,
-				})
-			)
-		)
-		this.composer.passes.forEach((pass) => {
-			if (pass && pass.name === 'EffectPass') {
-				const [effect] = pass.effects
-				if (effect && effect.name === 'NoiseEffect') {
-					effect.blendMode.opacity.value = 0.45
-				}
-			}
-		})
-		/** GodRaysEffect */
 		this.scene.onAfterRender = (webgl, scene) => {
 			if (this.params.isSceneLoaded) {
 				return
 			}
-			scene.traverse((item) => {
+			scene.traverse(async (item) => {
 				if (item.name === 'WindowLight') {
 					this.params.isSceneLoaded = true
+					/** DepthOfFieldEffect */
+					this.composer.addPass(
+						new EffectPass(
+							this.camera,
+							new DepthOfFieldEffect(this.camera, {
+								bokehScale: this.params.effects.dof.scale,
+								focusDistance: this.params.effects.dof.focusDistance,
+								focalLength: this.params.effects.dof.focalLength,
+							})
+						)
+					)
+					/** BloomEffect */
+					this.composer.addPass(
+						new EffectPass(
+							this.camera,
+							new BloomEffect({
+								luminanceThreshold:
+									this.params.effects.bloom.luminanceThreshold,
+								luminanceSmoothing:
+									this.params.effects.bloom.luminanceSmoothing,
+								intensity: this.params.effects.bloom.intensity,
+							})
+						)
+					)
+					/** HueSaturationEffect */
+					this.composer.addPass(
+						new EffectPass(
+							this.camera,
+							new HueSaturationEffect({ saturation: -0.15 })
+						)
+					)
+					/** BrightnessContrastEffect */
+					this.composer.addPass(
+						new EffectPass(
+							this.camera,
+							new BrightnessContrastEffect({
+								brightness: -0.05,
+								contrast: -0.2,
+							})
+						)
+					)
+					/** GodRaysEffect */
 					this.composer.addPass(
 						new EffectPass(
 							this.camera,
@@ -257,34 +271,55 @@ export default class App {
 							})
 						)
 					)
+					/** NoiseEffect */
+					this.composer.addPass(
+						new EffectPass(
+							this.camera,
+							new NoiseEffect({
+								blendFunction: BlendFunction.SCREEN,
+								premultiply: true,
+							})
+						)
+					)
+					this.composer.passes.forEach((pass) => {
+						if (pass && pass.name === 'EffectPass') {
+							const [effect] = pass.effects
+							if (effect && effect.name === 'NoiseEffect') {
+								effect.blendMode.opacity.value = this.params.device === 'mobile'?0.2:0.85
+							}
+						}
+					})
+					/** VignetteEffect */
+					this.composer.addPass(
+						new EffectPass(this.camera, new VignetteEffect())
+					)
+					/** Custom */
+					this.composer.addPass(myShaderPass)
+
+					/** SMAAEffect */
+					// const assets = new Map()
+					// const smaaImageLoader = new SMAAImageLoader(this.loadingManager)
+					// await new Promise((resolve) => {
+					// 	smaaImageLoader.load(([search, area]) => {
+					// 		assets.set('smaa-search', search)
+					// 		assets.set('smaa-area', area)
+					// 		resolve()
+					// 	})
+					// })
+					// this.composer.addPass(
+					// 	new EffectPass(
+					// 		this.camera,
+					// 		new SMAAEffect(assets.get('smaa-search'), assets.get('smaa-area'))
+					// 	)
+					// )
 				}
 			})
 		}
-		/** SMAAEffect */
-		const assets = new Map()
-		const smaaImageLoader = new SMAAImageLoader(this.loadingManager)
-		await new Promise((resolve) => {
-			smaaImageLoader.load(([search, area]) => {
-				assets.set('smaa-search', search)
-				assets.set('smaa-area', area)
-				resolve()
-			})
-		})
-		this.composer.addPass(
-			new EffectPass(
-				this.camera,
-				new SMAAEffect(assets.get('smaa-search'), assets.get('smaa-area'))
-			)
-		)
-		/** VignetteEffect */
-		this.composer.addPass(new EffectPass(this.camera, new VignetteEffect()))
-
-		/** Custom */
-	//	this.composer.addPass(myShaderPass)
-		console.log(this.composer)
+		//console.log(myShaderPass)
 	}
 	#createControls() {
 		this.controls = new OrbitControls(this.camera, this.renderer.domElement)
+		this.controls.target = new THREE.Vector3(0, 1, 0)
 		this.controls.enableDamping = true
 	}
 	async #createDebugPanel() {
@@ -293,6 +328,22 @@ export default class App {
 		 */
 		const loadDebugPanel = new (await import('./DebugPanel.js')).default()
 		this.pane = loadDebugPanel.pane
+	}
+	async #opening() {
+		const [child] = myShaderPass.scene.children
+		this.params.onTickModel.push(this.camera)
+		await new Promise((resolve) => setTimeout(resolve, 2000))
+		let progress = 0
+		this.camera.onTick = (t) => {
+			t -= 2
+			if (t > this.params.opening.delay) {
+				return
+			}
+			this.camera.position.x += (0.0 - this.camera.position.x) * 0.0156
+			/** Shaderpass */
+			child.material.uniforms.uTime.value = t
+			child.material.uniforms.uProgress.value = progress + t * 0.5
+		}
 	}
 	#createClock() {
 		this.clock = new THREE.Clock()
