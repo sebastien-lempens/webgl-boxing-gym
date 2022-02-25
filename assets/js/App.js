@@ -177,9 +177,9 @@ export default class App {
 		this.scene.add(lightWindow)
 
 		const lightSide = new THREE.PointLight(new THREE.Color('hsl(206,54%,58%)'))
-		lightSide.intensity = 0.6
-		lightSide.distance = 7
-		lightSide.decay = -2.35
+		lightSide.intensity = 0.2
+		lightSide.distance = 8.5
+		lightSide.decay = -2.1
 		lightSide.name = 'lightSide'
 		lightSide.position.set(-2.85, 1.25, 1.85)
 		this.scene.add(lightSide)
@@ -242,7 +242,7 @@ export default class App {
 					this.composer.addPass(
 						new EffectPass(
 							this.camera,
-							new HueSaturationEffect({ saturation: -0.15 })
+							new HueSaturationEffect({ saturation: 0.1 })
 						)
 					)
 					/** BrightnessContrastEffect */
