@@ -146,7 +146,7 @@ export default class App {
 		if (this.params.device === 'tablet') {
 			pixelRatio = 1
 		} else if (this.params.device === 'mobile') {
-			pixelRatio = 1 / 4
+			pixelRatio = 1 / 6
 		}
 		//console.log(this.params.device, pixelRatio);
 		this.renderer.setPixelRatio(pixelRatio)
