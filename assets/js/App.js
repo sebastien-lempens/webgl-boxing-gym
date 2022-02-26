@@ -339,15 +339,20 @@ export default class App {
 		this.params.onTickModel.push(this.camera)
 		//		await new Promise((resolve) => setTimeout(resolve, 2000))
 		let progress = 0
+		let endOnTick = false
 		this.camera.onTick = (t) => {
-			t -= 2
-			if (t > this.params.opening.delay) {
-				//	return
+			if (endOnTick) {
+				return
+			} else {
+				t -= 2
+				if (this.camera.position.x > 0.4) {
+					endOnTick = true
+				}
+				this.camera.position.x += (0.5 - this.camera.position.x) * 0.0156
+				/** Shaderpass */
+				child.material.uniforms.uTime.value = t
+				child.material.uniforms.uProgress.value = progress + t * 0.5
 			}
-			this.camera.position.x += (0.0 - this.camera.position.x) * 0.0156
-			/** Shaderpass */
-			child.material.uniforms.uTime.value = t
-			child.material.uniforms.uProgress.value = progress + t * 0.5
 		}
 	}
 	#createClock() {
