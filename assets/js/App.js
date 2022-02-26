@@ -134,7 +134,7 @@ export default class App {
 			powerPreference:
 				this.params.device === 'mobile' ? 'low-power' : 'high-performance',
 			stencil: false,
-			depth: false,
+			depth: false, 
 		})
 		this.container.appendChild(this.renderer.domElement)
 		this.renderer.setSize(
@@ -147,7 +147,6 @@ export default class App {
 		} else if (this.params.device === 'mobile') {
 			pixelRatio = 1 / 4
 		}
-		//console.log(this.params.device, pixelRatio);
 		this.renderer.setPixelRatio(pixelRatio)
 		this.renderer.setClearColor(new THREE.Color('black'))
 		this.renderer.physicallyCorrectLights = true
@@ -287,8 +286,7 @@ export default class App {
 							if (pass && pass.name === 'EffectPass') {
 								const [effect] = pass.effects
 								if (effect && effect.name === 'NoiseEffect') {
-									effect.blendMode.opacity.value =
-										this.params.device === 'mobile' ? 0.2 : 0.85
+									effect.blendMode.opacity.value = 0.35
 								}
 							}
 						})
@@ -337,7 +335,6 @@ export default class App {
 	async #opening() {
 		const [child] = myShaderPass.scene.children
 		this.params.onTickModel.push(this.camera)
-		//		await new Promise((resolve) => setTimeout(resolve, 2000))
 		let progress = 0
 		let endOnTick = false
 		this.camera.onTick = (t) => {
