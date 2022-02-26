@@ -286,7 +286,7 @@ export default class App {
 							if (pass && pass.name === 'EffectPass') {
 								const [effect] = pass.effects
 								if (effect && effect.name === 'NoiseEffect') {
-									effect.blendMode.opacity.value = 0.35
+									effect.blendMode.opacity.value = 0.5
 								}
 							}
 						})
