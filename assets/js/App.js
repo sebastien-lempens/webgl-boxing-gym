@@ -336,10 +336,10 @@ export default class App {
 	async #opening() {
 		const [child] = myShaderPass.scene.children
 		this.params.onTickModel.push(this.camera)
-		await new Promise((resolve) => setTimeout(resolve, 2000))
+		//await new Promise((resolve) => setTimeout(resolve, 2000)) 
 		let progress = 0
 		this.camera.onTick = (t) => {
-			t -= 2
+			t -= 0.5
 			if (t > this.params.opening.delay) {
 				return
 			}
