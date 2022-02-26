@@ -213,6 +213,7 @@ export default class App {
 			scene.traverse(async (item) => {
 				if (item.name === 'WindowLight') {
 					this.params.isSceneLoaded = true
+
 					/** DepthOfFieldEffect */
 					this.composer.addPass(
 						new EffectPass(
@@ -296,8 +297,9 @@ export default class App {
 							new EffectPass(this.camera, new VignetteEffect())
 						)
 					}
+
 					/** Custom */
-					//this.composer.addPass(myShaderPass)
+					this.composer.addPass(myShaderPass)
 
 					/** SMAAEffect */
 					// const assets = new Map()
@@ -335,12 +337,12 @@ export default class App {
 	async #opening() {
 		const [child] = myShaderPass.scene.children
 		this.params.onTickModel.push(this.camera)
-		//await new Promise((resolve) => setTimeout(resolve, 2000)) 
+		//		await new Promise((resolve) => setTimeout(resolve, 2000))
 		let progress = 0
 		this.camera.onTick = (t) => {
-			t -= 0.5
+			t -= 2
 			if (t > this.params.opening.delay) {
-				return
+				//	return
 			}
 			this.camera.position.x += (0.0 - this.camera.position.x) * 0.0156
 			/** Shaderpass */
