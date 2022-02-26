@@ -170,10 +170,10 @@ export default class App {
 		this.lightWindow = lightWindow
 		this.scene.add(lightWindow)
 
-		const lightSide = new THREE.PointLight(new THREE.Color('hsl(178,17%,58%)'))
-		lightSide.intensity = 0.4
-		lightSide.distance = 7.6
-		lightSide.decay = -2.1
+		const lightSide = new THREE.PointLight(new THREE.Color('hsl(200,52%,72%)'))
+		lightSide.intensity = 0.3
+		lightSide.distance = 7.3
+		lightSide.decay = -2.25
 		lightSide.name = 'lightSide'
 		lightSide.position.set(-2.85, 1.25, 1.85)
 		this.scene.add(lightSide)
