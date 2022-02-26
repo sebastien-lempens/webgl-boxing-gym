@@ -297,8 +297,7 @@ export default class App {
 						)
 					}
 					/** Custom */
-					myShaderPass.renderToScreen = true
-					this.composer.addPass(myShaderPass)
+					//this.composer.addPass(myShaderPass)
 
 					/** SMAAEffect */
 					// const assets = new Map()
@@ -334,8 +333,9 @@ export default class App {
 		this.pane = loadDebugPanel.pane
 	}
 	async #opening() {
+		const [child] = myShaderPass.scene.children
 		this.params.onTickModel.push(this.camera)
-		//await new Promise((resolve) => setTimeout(resolve, 2000))
+		//await new Promise((resolve) => setTimeout(resolve, 2000)) 
 		let progress = 0
 		this.camera.onTick = (t) => {
 			t -= 0.5
@@ -344,7 +344,6 @@ export default class App {
 			}
 			this.camera.position.x += (0.0 - this.camera.position.x) * 0.0156
 			/** Shaderpass */
-			const [child] = myShaderPass.scene.children
 			child.material.uniforms.uTime.value = t
 			child.material.uniforms.uProgress.value = progress + t * 0.5
 		}
