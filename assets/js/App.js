@@ -6,14 +6,10 @@ import {
 	EffectComposer,
 	EffectPass,
 	RenderPass,
-	BlendFunction,
 	DepthOfFieldEffect,
 	HueSaturationEffect,
 	BrightnessContrastEffect,
-	SMAAEffect,
-	SMAAImageLoader,
-	VignetteEffect,
-	NoiseEffect,
+	VignetteEffect
 } from 'postprocessing'
 import myShaderPass from './customPass'
 
@@ -134,7 +130,7 @@ export default class App {
 			powerPreference:
 				this.params.device === 'mobile' ? 'low-power' : 'high-performance',
 			stencil: false,
-			depth: false, 
+			depth: false,
 		})
 		this.container.appendChild(this.renderer.domElement)
 		this.renderer.setSize(
@@ -224,6 +220,7 @@ export default class App {
 							})
 						)
 					)
+
 					/** BloomEffect */
 					this.composer.addPass(
 						new EffectPass(
@@ -237,6 +234,7 @@ export default class App {
 							})
 						)
 					)
+
 					/** HueSaturationEffect */
 					this.composer.addPass(
 						new EffectPass(
@@ -270,51 +268,13 @@ export default class App {
 							})
 						)
 					)
-					/** NoiseEffect */
-					if (this.params.device !== 'mobile') {
-						this.composer.addPass(
-							new EffectPass(
-								this.camera,
-								new NoiseEffect({
-									blendFunction: BlendFunction.SCREEN,
-									premultiply: true,
-								})
-							)
-						)
 
-						this.composer.passes.forEach((pass) => {
-							if (pass && pass.name === 'EffectPass') {
-								const [effect] = pass.effects
-								if (effect && effect.name === 'NoiseEffect') {
-									effect.blendMode.opacity.value = 0.5
-								}
-							}
-						})
-						/** VignetteEffect */
-						this.composer.addPass(
-							new EffectPass(this.camera, new VignetteEffect())
-						)
-					}
-
+					/** VignetteEffect */
+					this.composer.addPass(
+						new EffectPass(this.camera, new VignetteEffect())
+					)
 					/** Custom */
 					this.composer.addPass(myShaderPass)
-
-					/** SMAAEffect */
-					// const assets = new Map()
-					// const smaaImageLoader = new SMAAImageLoader(this.loadingManager)
-					// await new Promise((resolve) => {
-					// 	smaaImageLoader.load(([search, area]) => {
-					// 		assets.set('smaa-search', search)
-					// 		assets.set('smaa-area', area)
-					// 		resolve()
-					// 	})
-					// })
-					// this.composer.addPass(
-					// 	new EffectPass(
-					// 		this.camera,
-					// 		new SMAAEffect(assets.get('smaa-search'), assets.get('smaa-area'))
-					// 	)
-					// )
 				}
 			})
 		}
