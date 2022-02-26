@@ -38,8 +38,9 @@ export default class Models {
 										child.material.side = THREE.DoubleSide
 
 										if (name === 'WindowLight') {
+											child.material.color = new THREE.Color('hsl(18,87%,56%)')
 											child.material.emissive = new THREE.Color(
-												'rgb(255,235,210)'
+												'hsl(33,98%,81%)'
 											)
 										} else if (name === 'Walls') {
 											child.material.side = THREE.FrontSide

@@ -96,7 +96,7 @@ export default class App {
 				bloom: {
 					luminanceThreshold: 0.01,
 					luminanceSmoothing: 0.01,
-					intensity: 0.15,
+					intensity: 0.25,
 				},
 				dof: {
 					scale: 2.5,
@@ -160,8 +160,8 @@ export default class App {
 		this.scene.add(light)
 
 		const lightWindow = new THREE.PointLight(
-			new THREE.Color('hsl(29,25%,63%)'),
-			3.25,
+			new THREE.Color('hsl(38,93%,77%)'),
+			2.6,
 			4,
 			-1.5
 		)
@@ -170,9 +170,9 @@ export default class App {
 		this.lightWindow = lightWindow
 		this.scene.add(lightWindow)
 
-		const lightSide = new THREE.PointLight(new THREE.Color('hsl(206,54%,58%)'))
+		const lightSide = new THREE.PointLight(new THREE.Color('hsl(178,17%,58%)'))
 		lightSide.intensity = 0.4
-		lightSide.distance = 8.5
+		lightSide.distance = 7.6
 		lightSide.decay = -2.1
 		lightSide.name = 'lightSide'
 		lightSide.position.set(-2.85, 1.25, 1.85)
@@ -188,14 +188,11 @@ export default class App {
 			const percent = 100 - Math.floor((loaded / total) * 100)
 			fill.style.clipPath = `inset(${percent}% 0 0 0)`
 		}
-
 		this.loadingManager.onLoad = async () => {
 			console.log('All resources loaded')
 			this.params.loading.el.classList.add('end')
 			await this.#opening()
 		}
-
-		//	this.gltfLoader = new GLTFLoader(this.loadingManager)
 	}
 	async #loadModel() {
 		const loadModels = new (await import('./Models.js')).default()
@@ -302,10 +299,10 @@ export default class App {
 				return
 			} else {
 				t -= 2
-				if (this.camera.position.x > 0.4) {
+				if (this.camera.position.x > 0.25) {
 					endOnTick = true
 				}
-				this.camera.position.x += (0.5 - this.camera.position.x) * 0.0156
+				this.camera.position.x += (0.5 - this.camera.position.x) * 0.006
 				/** Shaderpass */
 				child.material.uniforms.uTime.value = t
 				child.material.uniforms.uProgress.value = progress + t * 0.5
