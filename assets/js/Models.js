@@ -92,53 +92,57 @@ export default class Models {
 								}
 							)
 						})
-						await new Promise((resolve) => {
-							new THREE.TextureLoader(this.app.loadingManager).load(
-								`/assets/texture/Normal/${name}.jpg`,
-								(texture) => {
-									if (texture) {
-										texture.flipY = false
-										child.material.normalScale = new THREE.Vector2(1, 1)
-										child.material.normalMap = texture
-										if (name === 'Carpet') {
-											child.material.normalScale = new THREE.Vector2(1.5, 1)
+						if (this.app.params.device !== 'mobile') {
+							await new Promise((resolve) => {
+								new THREE.TextureLoader(this.app.loadingManager).load(
+									`/assets/texture/Normal/${name}.jpg`,
+									(texture) => {
+										if (texture) {
+											texture.flipY = false
+											child.material.normalScale = new THREE.Vector2(1, 1)
+											child.material.normalMap = texture
+											if (name === 'Carpet') {
+												child.material.normalScale = new THREE.Vector2(1.5, 1)
+											}
+											if (name === 'BathTowel') {
+												child.material.normalScale = new THREE.Vector2(8, 2)
+											}
+											if (name === 'PunshingBall') {
+												child.material.normalScale = new THREE.Vector2(-1.4, -1)
+											}
+											if (name === 'Walls') {
+												child.material.normalScale = new THREE.Vector2(
+													0.8,
+													-1.5
+												)
+											}
+											if (name === 'Radiator') {
+												child.material.normalScale = new THREE.Vector2(0, 1)
+											}
+											if (name === 'Bench') {
+												child.material.normalScale = new THREE.Vector2(1, 5.5)
+											}
+											if (name === 'Towel') {
+												child.material.normalScale = new THREE.Vector2(4, 4)
+											}
+											if (name === 'Floor') {
+												child.material.normalScale = new THREE.Vector2(1.5, 3)
+											}
+											if (name === 'Tube') {
+												child.material.normalScale = new THREE.Vector2(2, -0.3)
+											}
+											if (name === 'Lockers') {
+												child.material.normalScale = new THREE.Vector2(
+													-0.55,
+													0.28
+												)
+											}
 										}
-										if (name === 'BathTowel') {
-											child.material.normalScale = new THREE.Vector2(8, 2)
-										}
-										if (name === 'PunshingBall') {
-											child.material.normalScale = new THREE.Vector2(-1.4, -1)
-										}
-										if (name === 'Walls') {
-											child.material.normalScale = new THREE.Vector2(0.8, -1.5)
-										}
-										if (name === 'Radiator') {
-											child.material.normalScale = new THREE.Vector2(0, 1)
-										}
-										if (name === 'Bench') {
-											child.material.normalScale = new THREE.Vector2(1, 5.5)
-										}
-										if (name === 'Towel') {
-											child.material.normalScale = new THREE.Vector2(4, 4)
-										}
-										if (name === 'Floor') {
-											child.material.normalScale = new THREE.Vector2(1.5, 3)
-										}
-										if (name === 'Tube') {
-											child.material.normalScale = new THREE.Vector2(2, -0.3)
-										}
-										if (name === 'Lockers') {
-											child.material.normalScale = new THREE.Vector2(
-												-0.55,
-												0.28
-											)
-										}
+										resolve()
 									}
-									resolve()
-								}
-							)
-						})
-
+								)
+							})
+						}
 						if (name === 'Fan') {
 							const [fanBlade] = child.children.filter(
 								({ name }) => name === 'FanBlade'

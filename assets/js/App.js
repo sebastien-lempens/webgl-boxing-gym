@@ -83,7 +83,7 @@ export default class App {
 				return device
 			},
 			loading: {
-				el: document.querySelector('.loading')
+				el: document.querySelector('.loading'),
 			},
 			onTickModel: [],
 			mouse: new THREE.Vector2(),
@@ -131,9 +131,8 @@ export default class App {
 	}
 	#createRenderer() {
 		this.renderer = new THREE.WebGLRenderer({
-			powerPreference: 'high-performance',
-			//alpha: true,
-			//	antialias: window.devicePixelRatio === 1,
+			powerPreference:
+				this.params.device === 'mobile' ? 'low-power' : 'high-performance',
 			stencil: false,
 			depth: false,
 		})
@@ -146,7 +145,7 @@ export default class App {
 		if (this.params.device === 'tablet') {
 			pixelRatio = 1
 		} else if (this.params.device === 'mobile') {
-			pixelRatio = 1 / 6
+			pixelRatio = 1 / 4
 		}
 		//console.log(this.params.device, pixelRatio);
 		this.renderer.setPixelRatio(pixelRatio)
@@ -191,9 +190,8 @@ export default class App {
 			// In case the progress count is not correct, see this:
 			// https://discourse.threejs.org/t/gltf-file-loaded-twice-when-loading-is-initiated-in-loadingmanager-inside-onprogress-callback/27799/2
 			//	console.log(`Loaded ${loaded} resources out of ${total} -> ${url}`)
-			const percent = 100 - Math.floor(loaded/total*100);
-			fill.style.clipPath=`inset(${percent}% 0 0 0)`
-		
+			const percent = 100 - Math.floor((loaded / total) * 100)
+			fill.style.clipPath = `inset(${percent}% 0 0 0)`
 		}
 
 		this.loadingManager.onLoad = async () => {
@@ -273,28 +271,33 @@ export default class App {
 						)
 					)
 					/** NoiseEffect */
-					this.composer.addPass(
-						new EffectPass(
-							this.camera,
-							new NoiseEffect({
-								blendFunction: BlendFunction.SCREEN,
-								premultiply: true,
-							})
+					if (this.params.device !== 'mobile') {
+						this.composer.addPass(
+							new EffectPass(
+								this.camera,
+								new NoiseEffect({
+									blendFunction: BlendFunction.SCREEN,
+									premultiply: true,
+								})
+							)
 						)
-					)
-					this.composer.passes.forEach((pass) => {
-						if (pass && pass.name === 'EffectPass') {
-							const [effect] = pass.effects
-							if (effect && effect.name === 'NoiseEffect') {
-								effect.blendMode.opacity.value = this.params.device === 'mobile'?0.2:0.85
+
+						this.composer.passes.forEach((pass) => {
+							if (pass && pass.name === 'EffectPass') {
+								const [effect] = pass.effects
+								if (effect && effect.name === 'NoiseEffect') {
+									effect.blendMode.opacity.value =
+										this.params.device === 'mobile' ? 0.2 : 0.85
+								}
 							}
-						}
-					})
-					/** VignetteEffect */
-					this.composer.addPass(
-						new EffectPass(this.camera, new VignetteEffect())
-					)
+						})
+						/** VignetteEffect */
+						this.composer.addPass(
+							new EffectPass(this.camera, new VignetteEffect())
+						)
+					}
 					/** Custom */
+					myShaderPass.renderToScreen = true
 					this.composer.addPass(myShaderPass)
 
 					/** SMAAEffect */
