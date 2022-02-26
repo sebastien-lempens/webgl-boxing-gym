@@ -83,7 +83,7 @@ export default class App {
 				return device
 			},
 			loading: {
-				el: document.querySelector('.loading'),
+				el: document.querySelector('.loading')
 			},
 			onTickModel: [],
 			mouse: new THREE.Vector2(),
@@ -161,8 +161,8 @@ export default class App {
 		this.composer.addPass(new RenderPass(this.scene, this.camera))
 	}
 	#createLight() {
-		const light = new THREE.AmbientLight(new THREE.Color('hsl(47,96%,65%)'))
-		light.intensity = 0.4
+		const light = new THREE.AmbientLight(new THREE.Color('hsl(206,96%,65%)'))
+		light.intensity = 0.55
 		this.scene.add(light)
 
 		const lightWindow = new THREE.PointLight(
@@ -177,7 +177,7 @@ export default class App {
 		this.scene.add(lightWindow)
 
 		const lightSide = new THREE.PointLight(new THREE.Color('hsl(206,54%,58%)'))
-		lightSide.intensity = 0.2
+		lightSide.intensity = 0.4
 		lightSide.distance = 8.5
 		lightSide.decay = -2.1
 		lightSide.name = 'lightSide'
@@ -186,13 +186,14 @@ export default class App {
 	}
 	#createLoaders() {
 		this.loadingManager = new THREE.LoadingManager()
-
+		const fill = this.params.loading.el.querySelector('.loading-filling')
 		this.loadingManager.onProgress = (url, loaded, total) => {
 			// In case the progress count is not correct, see this:
 			// https://discourse.threejs.org/t/gltf-file-loaded-twice-when-loading-is-initiated-in-loadingmanager-inside-onprogress-callback/27799/2
 			//	console.log(`Loaded ${loaded} resources out of ${total} -> ${url}`)
-			const [span] = Array.from(this.params.loading.el.children)
-			span.innerHTML = Math.floor((loaded / total) * 100)
+			const percent = 100 - Math.floor(loaded/total*100);
+			fill.style.clipPath=`inset(${percent}% 0 0 0)`
+		
 		}
 
 		this.loadingManager.onLoad = async () => {
@@ -242,7 +243,7 @@ export default class App {
 					this.composer.addPass(
 						new EffectPass(
 							this.camera,
-							new HueSaturationEffect({ saturation: 0.1 })
+							new HueSaturationEffect({ saturation: -0.05 })
 						)
 					)
 					/** BrightnessContrastEffect */

@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vite Three.js Boilderplate v2</title>
+  <meta name="description" content="Three.js Experience">
+  <meta name="author" content="Sebastien Lempens">
+  <title>Three.js Boxing Gym</title>
+  <link rel="preload" href="/main.js" as="script">
+  <link rel="preload" href="/assets/images/preload-stroke.png" as="image">
+  <link rel="preload" href="/assets/images/preload-fill.png" as="image">
   <style>
     * {
       margin: 0;
@@ -26,16 +30,41 @@
     .loading {
       position: absolute;
       top: 50%;
-      width: 100%;
+      left: 50%;
+      width: 195px;
+      height: 260px;
       text-align: center;
-      transform: translateY(-50%);
+      transform: translate(-50%, -50%) scale(.8);
       font-weight: bold;
-      color:white;
-      transition: all 1200ms ease .4s;
+      color: white;
+      transition: all 800ms ease;
+      pointer-events: none;
+
     }
+
+    .loading picture {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .loading img {
+      image-rendering: -webkit-optimize-contrast;
+    }
+
+    .loading picture:nth-child(1) {
+      z-index: 1;
+      opacity: 0.5;
+    }
+
+    .loading picture:nth-child(2) {
+      z-index: 2;
+      clip-path: inset(100% 0 0 0);
+    }
+
     .loading.end {
       opacity: 0;
-      transform: translateY(10px);
     }
 
     legend {
@@ -63,9 +92,16 @@
 </head>
 
 <body>
-  <div class="loading">B🥊xing // <span>0</span>%</div>
+  <div class="loading">
+    <picture>
+      <img src="assets/images/preload-stroke.png">
+    </picture>
+    <picture class="loading-filling">
+      <img src="assets/images/preload-fill.png">
+    </picture>
+  </div>
   <div id="App"></div>
-  <script type="module" src="./main.js"></script>
+  <script type="module" src="/main.js"></script>
   <legend>
     <span>2022</span>
     <span>//</span>
